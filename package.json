@@ -29,7 +29,7 @@
         "tailwindcss": "^2.0.4",
         "tinymce": "^6.8.3",
         "tippy.js": "^6.2.6",
-        "vite": "^3.0.2",
+        "vite": "^4.5.14",
         "vue": "^2.7.0",
         "vue-clickaway": "^2.2.2",
         "vue-cookies": "^1.8.3",
