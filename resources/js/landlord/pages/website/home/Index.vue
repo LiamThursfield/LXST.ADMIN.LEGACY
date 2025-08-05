@@ -3,7 +3,7 @@
 
         <hero-with-svg
             header="We digitalise your business."
-            content="SIGI is the only tool you'll need to manage your entire web presence, including: Website, Email Campaigns, Video Courses, and more..."
+            content="LXST.ADMIN is the only tool you'll need to manage your entire web presence, including: Website, Email Campaigns, and more..."
         >
             <template v-slot:svg>
                 <astronaut-on-moon />
@@ -36,8 +36,8 @@
 
         <simple-banner
             class="mt-16 md:mt-0"
-            header="Everything you need to start selling courses"
-            content="SIGI comes batteries included. It takes the best parts of state-of-the-art tools and adds its own innovations, allowing you to create & sell courses with ease."
+            header="Everything you need to start building websites"
+            content="LXST.ADMIN comes batteries included. It takes the best parts of state-of-the-art tools and adds its own innovations, allowing you to create and manage websites with ease."
         />
 
         <banner-grid class="mt-16"/>
@@ -53,7 +53,7 @@
                 <div class="flex mt-5">
                     <a
                         class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-2.5 bg-white text-black border-2 border-transparent"
-                        href="https://formie.io/form/9eece8a5-d9c0-428e-b447-562cf332d492"
+                        href="#"
                     >
                         Get Started
                     </a>

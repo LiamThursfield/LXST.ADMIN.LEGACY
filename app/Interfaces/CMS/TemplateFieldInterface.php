@@ -9,7 +9,6 @@ class TemplateFieldInterface
     const TYPE_COMPONENT = 'component';
     const TYPE_CRM_FORM = 'crm_form';
     const TYPE_CRM_ORGANISATION_UNIT = 'crm_organisation_unit';
-    const TYPE_EDU_COURSE = 'edu_course';
     const TYPE_IMAGE    = 'image';
     const TYPE_NUMBER   = 'number';
     const TYPE_REPEATER = 'repeater';
@@ -22,7 +21,6 @@ class TemplateFieldInterface
         self::TYPE_COMPONENT,
         self::TYPE_CRM_FORM,
         self::TYPE_CRM_ORGANISATION_UNIT,
-        self::TYPE_EDU_COURSE,
         self::TYPE_IMAGE,
         self::TYPE_NUMBER,
         self::TYPE_REPEATER,
@@ -37,7 +35,6 @@ class TemplateFieldInterface
         self::TYPE_CMS_MENU                 => "CMS Menu",
         self::TYPE_CRM_FORM                 => "CRM Form",
         self::TYPE_CRM_ORGANISATION_UNIT    => "CRM Organisation Unit",
-        self::TYPE_EDU_COURSE               => "EDU Course",
         self::TYPE_IMAGE                    => "Image",
         self::TYPE_NUMBER                   => "Number",
         self::TYPE_REPEATER                 => "Repeater",
@@ -102,7 +99,6 @@ class TemplateFieldInterface
         ],
         self::TYPE_CRM_FORM => [],
         self::TYPE_CRM_ORGANISATION_UNIT => [],
-        self::TYPE_EDU_COURSE => [],
         self::TYPE_IMAGE => [],
         self::TYPE_NUMBER => [
             'min' => null,

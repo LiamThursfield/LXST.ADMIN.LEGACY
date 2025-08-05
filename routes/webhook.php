@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\Webhook\Stripe\StripeCourseCheckoutController;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Webhook Routes
@@ -13,11 +10,3 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "webhook" middleware group.
 |
 */
-
-Route::group([
-    'as' => 'stripe.',
-    'prefix' => 'stripe',
-], function() {
-    Route::post('/course/checkout', StripeCourseCheckoutController::class)->name('course.checkout');
-});
-

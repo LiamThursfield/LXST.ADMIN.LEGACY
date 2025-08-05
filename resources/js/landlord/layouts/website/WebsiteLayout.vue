@@ -9,7 +9,7 @@
             <slot />
 
             <div class="mt-20 text-center">
-                Copyright © {{ (new Date().getFullYear()) }} SIGI
+                Copyright © {{ (new Date().getFullYear()) }} LXST.ADMIN
             </div>
         </main>
     </div>
@@ -36,19 +36,19 @@
             metaDescription() {
                 return this.getMetaDataField(
                     'description',
-                    'SIGI - powering your online presence'
+                    'LXST.ADMIN - powering your online presence'
                 );
             },
             metaTitle() {
                 return this.getMetaDataField(
                     'title',
-                    'SIGI'
+                    'LXST.ADMIN'
                 );
             },
             metaTenantName() {
                 return this.getMetaDataField(
                     'tenant',
-                    'SIGI'
+                    'LXST.ADMIN'
                 );
             }
         },

@@ -14,14 +14,14 @@ class CreateTenant extends Command
      *
      * @var string
      */
-    protected $signature = 'tenants:create';
+    protected $signature = 'landlord:create-tenant';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a super tenant';
+    protected $description = 'Create a tenant';
 
 
     public function handle() : void

@@ -63,7 +63,7 @@ class InertiaServiceProvider extends ServiceProvider
 
                 public function links($view = null, $data = [])
                 {
-                    $this->onEachSide(\config('sigi.pagination.links_on_each_side', 1));
+                    $this->onEachSide(\config('lxst_admin.pagination.links_on_each_side', 1));
                     $this->appends(Request::all());
 
                     $window = UrlWindow::make($this);
@@ -130,7 +130,7 @@ class InertiaServiceProvider extends ServiceProvider
                 return [
                     'name' => Config::get('app.name'),
                     'config' => [
-                        'file_manager_uploads_enabled' => Config::get('sigi.file_manager.uploads.enabled', false),
+                        'file_manager_uploads_enabled' => Config::get('lxst_admin.file_manager.uploads.enabled', false),
                     ],
                     'locale' => App::getLocale(),
                 ];

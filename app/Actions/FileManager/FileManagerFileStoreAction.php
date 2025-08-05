@@ -2,9 +2,6 @@
 
 namespace App\Actions\FileManager;
 
-
-use App\Models\EDU\Lecture\LectureFiles;
-use App\Models\EDU\Section\SectionFiles;
 use Carbon\Carbon;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -34,28 +31,6 @@ class FileManagerFileStoreAction
     {
         $directory = $this->formatDirectory($directory);
         $filename = $this->getFileName($directory, $file);
-
-        // TODO: Move this to EduFileManagerStoreAction
-        if ($request->has('lecture')) {
-            $lectureFiles = new LectureFiles();
-            $lectureFiles->fill([
-                'lecture_id' => $request->input('lecture'),
-                'file_path' => $directory . $filename,
-                'file_name' => $filename,
-            ]);
-            $lectureFiles->save();
-        }
-
-        // TODO: Move this to EduFileManagerStoreAction
-        if ($request->has('section')) {
-            $sectionFiles = new SectionFiles();
-            $sectionFiles->fill([
-                'section_id' => $request->input('section'),
-                'file_path' => $directory . $filename,
-                'file_name' => $filename,
-            ]);
-            $sectionFiles->save();
-        }
 
         return $file->storeAs($directory, $filename, $this->storage_disk);
     }

@@ -25,8 +25,6 @@
     import { pageWithMetaMixin } from "../../../mixins/website/page-with-meta";
     import BasicLayout from "../../../layouts/website/BasicLayout.vue";
     import BasicPage from "../../../page-templates/web/BasicPage.vue";
-    import CourseLayout from "../../../layouts/website/CourseLayout.vue";
-    import CoursePage from "../../../page-templates/web/CoursePage.vue";
 
     export default {
         name: 'PageShow',
@@ -36,10 +34,8 @@
         components: {
             // Layout Templates
             BasicLayout,
-            CourseLayout,
             // Page Templates
             BasicPage,
-            CoursePage,
         },
     }
 </script>

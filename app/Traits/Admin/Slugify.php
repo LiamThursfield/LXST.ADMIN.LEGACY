@@ -15,7 +15,7 @@ trait Slugify
 
     /**
      * Use this for slugs that are live and user facing.
-     * This way we anonymize a bit the name to access courses/programmes and,
+     * This way we anonymize a bit the name to access resources and,
      * make it harder for them to guess our slugs.
      *
      * @param string $data

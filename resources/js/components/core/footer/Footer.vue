@@ -10,9 +10,9 @@
                 <a
                     class="underline font-semibold"
                     :class="getLinkClassValue"
-                    href="https://sigi.ro/"
+                    href="https://lxst-admin.co.uk/"
                 >
-                    SIGI
+                    LXST.ADMIN
                 </a>
             </div>
         </footer>

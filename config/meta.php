@@ -2,9 +2,9 @@
 
 return [
     'admin' => [
-        'description' => "SIGI - powering your online presence",
+        'description' => "LXST.ADMIN - powering your online presence",
         'title' => [
-            'SIGI',
+            'LXST.ADMIN',
             'Admin'
         ]
     ],

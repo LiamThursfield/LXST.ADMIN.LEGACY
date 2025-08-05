@@ -52,54 +52,6 @@ class PermissionInterface
     const EDIT_CRM_ORGANISATION_UNITS      = 'edit crm_organisation_units';
     const VIEW_CRM_ORGANISATION_UNITS      = 'view crm_organisation_units';
 
-    // EDU Course Permissions
-    const CREATE_EDU_COURSES  = 'create edu_courses';
-    const DELETE_EDU_COURSES  = 'delete edu_courses';
-    const EDIT_EDU_COURSES    = 'edit edu_courses';
-    const VIEW_EDU_COURSES    = 'view edu_courses';
-    const PUBLISH_EDU_COURSES    = 'publish edu_courses';
-
-    // EDU Course Purchases Permissions
-    const VIEW_EDU_COURSE_PURCHASES    = 'view edu_course_purchases';
-
-    // EDU Programmes Permissions
-    const CREATE_EDU_PROGRAMMES  = 'create edu_programmes';
-    const DELETE_EDU_PROGRAMMES  = 'delete edu_programmes';
-    const EDIT_EDU_PROGRAMMES    = 'edit edu_programmes';
-    const VIEW_EDU_PROGRAMMES    = 'view edu_programmes';
-    const PUBLISH_EDU_PROGRAMMES    = 'publish edu_programmes';
-
-    // EDU Labels Permissions
-    const CREATE_EDU_LABELS  = 'create edu_labels';
-    const DELETE_EDU_LABELS  = 'delete edu_labels';
-    const EDIT_EDU_LABELS    = 'edit edu_labels';
-    const VIEW_EDU_LABELS    = 'view edu_labels';
-
-    // EDU Sections Permissions
-    const CREATE_EDU_SECTIONS  = 'create edu_sections';
-    const DELETE_EDU_SECTIONS  = 'delete edu_sections';
-    const EDIT_EDU_SECTIONS    = 'edit edu_sections';
-    const VIEW_EDU_SECTIONS    = 'view edu_sections';
-
-    // EDU Lectures Permissions
-    const CREATE_EDU_LECTURES  = 'create edu_lectures';
-    const DELETE_EDU_LECTURES  = 'delete edu_lectures';
-    const EDIT_EDU_LECTURES    = 'edit edu_lectures';
-    const VIEW_EDU_LECTURES    = 'view edu_lectures';
-
-    // EDU Announcements Permissions
-    const CREATE_EDU_ANNOUNCEMENTS  = 'create edu_announcements';
-    const DELETE_EDU_ANNOUNCEMENTS  = 'delete edu_announcements';
-    const EDIT_EDU_ANNOUNCEMENTS    = 'edit edu_announcements';
-    const VIEW_EDU_ANNOUNCEMENTS    = 'view edu_announcements';
-    const PUBLISH_EDU_ANNOUNCEMENTS = 'publish edu_announcements';
-
-    // EDU Webinars Permissions
-    const CREATE_EDU_WEBINARS  = 'create edu_webinars';
-    const DELETE_EDU_WEBINARS  = 'delete edu_webinars';
-    const EDIT_EDU_WEBINARS    = 'edit edu_webinars';
-    const VIEW_EDU_WEBINARS    = 'view edu_webinars';
-
     // Email Preview
     const VIEW_EMAIL_PREVIEW = 'view email_preview';
 
@@ -123,11 +75,6 @@ class PermissionInterface
     const DELETE_USERS  = 'delete users';
     const EDIT_USERS    = 'edit users';
     const VIEW_USERS    = 'view users';
-
-
-    // Student Admin Permissions
-    const VIEW_STUDENT_ADMIN = 'view student_admin';
-    const EDIT_STUDENT_ADMIN = 'edit student_admin';
 
 
     // All Permissions
@@ -169,54 +116,6 @@ class PermissionInterface
             'edit'      => self::EDIT_CRM_ORGANISATION_UNITS,
             'view'      => self::VIEW_CRM_ORGANISATION_UNITS,
         ],
-        'edu_announcements' => [
-            'create' => self::CREATE_EDU_ANNOUNCEMENTS,
-            'delete' => self::DELETE_EDU_ANNOUNCEMENTS,
-            'edit' => self::EDIT_EDU_ANNOUNCEMENTS,
-            'view' => self::VIEW_EDU_ANNOUNCEMENTS,
-            'publish' => self::PUBLISH_EDU_ANNOUNCEMENTS,
-        ],
-        'edu_courses' => [
-            'create' => self::CREATE_EDU_COURSES,
-            'delete' => self::DELETE_EDU_COURSES,
-            'edit' => self::EDIT_EDU_COURSES,
-            'view' => self::VIEW_EDU_COURSES,
-            'publish' => self::PUBLISH_EDU_COURSES,
-        ],
-        'edu_programmes' => [
-            'create' => self::CREATE_EDU_PROGRAMMES,
-            'delete' => self::DELETE_EDU_PROGRAMMES,
-            'edit' => self::EDIT_EDU_PROGRAMMES,
-            'view' => self::VIEW_EDU_PROGRAMMES,
-            'publish' => self::PUBLISH_EDU_PROGRAMMES,
-        ],
-        'edu_labels' => [
-            'create' => self::CREATE_EDU_LABELS,
-            'delete' => self::DELETE_EDU_LABELS,
-            'edit' => self::EDIT_EDU_LABELS,
-            'view' => self::VIEW_EDU_LABELS,
-        ],
-        'edu_sections' => [
-            'create' => self::CREATE_EDU_SECTIONS,
-            'delete' => self::DELETE_EDU_SECTIONS,
-            'edit' => self::EDIT_EDU_SECTIONS,
-            'view' => self::VIEW_EDU_SECTIONS,
-        ],
-        'edu_lectures' => [
-            'create' => self::CREATE_EDU_LECTURES,
-            'delete' => self::DELETE_EDU_LECTURES,
-            'edit' => self::EDIT_EDU_LECTURES,
-            'view' => self::VIEW_EDU_LECTURES,
-        ],
-        'edu_webinars' => [
-            'create' => self::CREATE_EDU_WEBINARS,
-            'delete' => self::DELETE_EDU_WEBINARS,
-            'edit' => self::EDIT_EDU_WEBINARS,
-            'view' => self::VIEW_EDU_WEBINARS,
-        ],
-        'edu_course_purchases' => [
-            'view' => self::VIEW_EDU_COURSE_PURCHASES,
-        ],
         'email_preview' => [
             'view' => self::VIEW_EMAIL_PREVIEW,
         ],
@@ -241,10 +140,6 @@ class PermissionInterface
             'edit'      => self::EDIT_USERS,
             'view'      => self::VIEW_USERS,
         ],
-        'student_admin' => [
-            'view' => self::VIEW_STUDENT_ADMIN,
-            'edit' => self::EDIT_STUDENT_ADMIN,
-        ]
     ];
 
     static function getMiddlewareString($permissions)

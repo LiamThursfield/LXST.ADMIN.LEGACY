@@ -13,7 +13,7 @@ class PageController extends Controller
 {
     public function show(Request $request): Response
     {
-        if (!config('sigi.web.enabled')) {
+        if (!config('lxst_admin.web.enabled')) {
             abort(404);
         }
 

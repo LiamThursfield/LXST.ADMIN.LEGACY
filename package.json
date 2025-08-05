@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "prod": "vite build",
+        "clearjs": "rimraf public/build/assets/*",
+        "prod": "rimraf public/build/assets/* && vite build",
         "build": "vite build"
     },
     "devDependencies": {
@@ -25,6 +26,7 @@
         "postcss-nested": "5.0.1",
         "pretty-bytes": "^5.4.1",
         "resolve-url-loader": "^2.3.1",
+        "rimraf": "^6.0.1",
         "slugify": "^1.4.6",
         "tailwindcss": "^2.0.4",
         "tinymce": "^6.8.3",

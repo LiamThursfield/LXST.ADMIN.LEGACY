@@ -39,7 +39,7 @@
     import SelectGroup from "../../../../core/forms/SelectGroup.vue";
 
     export default {
-        name: "CrmCourseField",
+        name: "CrmOrganisationUnitField",
         mixins: [
             contentFieldMixin,
         ],

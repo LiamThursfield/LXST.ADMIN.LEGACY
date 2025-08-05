@@ -14,10 +14,10 @@
                     hover:text-theme-primary-hover
                     transition-colors
                 "
-                title="SIGI"
+                title="LXST.ADMIN"
                 href="/"
             >
-                SIGI
+                LXST.ADMIN
             </inertia-link>
 
             <!-- Menu Items -->

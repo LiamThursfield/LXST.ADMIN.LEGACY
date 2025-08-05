@@ -46,7 +46,6 @@
     import ComponentField from "./content_fields/ComponentField.vue";
     import CrmFormField from "./content_fields/CrmFormField.vue";
     import CrmOrganisationUnitField from "./content_fields/CrmOrganisationUnitField.vue";
-    import EduCourseField from "./content_fields/EduCourseField.vue";
     import ImageField from "./content_fields/ImageField.vue";
     import NumberField from "./content_fields/NumberField.vue";
     import RepeaterField from "./content_fields/RepeaterField.vue";
@@ -61,7 +60,6 @@
             ComponentField,
             CrmFormField,
             CrmOrganisationUnitField,
-            EduCourseField,
             ImageField,
             NumberField,
             RepeaterField,
@@ -108,8 +106,6 @@
                         return 'CrmFormField';
                     case 'crm_organisation_unit':
                         return 'CrmOrganisationUnitField';
-                    case 'edu_course':
-                        return 'EduCourseField';
                     case 'image':
                         return 'ImageField';
                     case 'number':

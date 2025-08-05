@@ -128,13 +128,13 @@
             metaDescription() {
                 return this.getMetaDataField(
                     'description',
-                    'SIGI - powered by Laravel, Tailwind, Vue, and Inertia'
+                    'LXST.ADMIN - powered by Laravel, Tailwind, Vue, and Inertia'
                 );
             },
             metaTitle() {
                 return this.getMetaDataField(
                     'title',
-                    'SIGI'
+                    'LXST.ADMIN'
                 );
             }
         },

@@ -75,8 +75,8 @@
                     },
                     min_height: 300,
                     plugins: 'code fullscreen image link lists',
-                    skin: 'SIGI',
-                    skin_url: '/vendor/tinymce/skins/sigi',
+                    skin: 'LXST',
+                    skin_url: '/vendor/tinymce/skins/lxst-admin',
                     toolbar: 'styleselect bold italic alignleft aligncenter alignright numlist bullist link image',
                 };
             },

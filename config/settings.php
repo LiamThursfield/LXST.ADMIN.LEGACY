@@ -8,7 +8,6 @@ return [
      */
     'settings' => [
         \App\Models\Settings\CoreSettings::class,
-        \App\Models\Settings\EduSettings::class,
         \App\Models\Settings\ThirdPartySettings::class,
     ],
 

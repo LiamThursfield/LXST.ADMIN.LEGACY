@@ -2,7 +2,6 @@
 
 namespace App\Console;
 
-use App\Console\Commands\EDU\Course\ProcessCoursePurchasePaymentsDue;
 use App\Models\Tenant;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -28,10 +27,7 @@ class Kernel extends ConsoleKernel
     {
         // Tenant commands
         Tenant::all()->each(function (Tenant $tenant) use ($schedule) {
-            $schedule->command(
-                ProcessCoursePurchasePaymentsDue::class,
-                [$tenant->id]
-            )->dailyAt('05:00');
+           // Add tenant commands here
         });
     }
 

@@ -12,15 +12,12 @@ class ResetPassword extends  \Illuminate\Auth\Notifications\ResetPassword
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::ADMIN_STUDENT;
+    protected $redirectTo = RouteServiceProvider::ADMIN;
 
 
     protected function resetUrl($notifiable)
     {
-        $routeName = $notifiable->hasRole(RoleInterface::STUDENT) ?
-            'password.reset' : 'student.password.reset';
-
-        return url(route($routeName, [
+        return url(route('password.reset', [
             'token' => $this->token,
             'email' => $notifiable->getEmailForPasswordReset(),
         ], false));

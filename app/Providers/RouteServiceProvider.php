@@ -24,13 +24,6 @@ class RouteServiceProvider extends ServiceProvider
     public const ADMIN = '/admin';
 
     /**
-     * The path to the student "admin" route for your application.
-     *
-     * @var string
-     */
-    public const ADMIN_STUDENT = '/student';
-
-    /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
@@ -57,8 +50,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
         $this->mapAdminRoutes();
         $this->mapAdminApiRoutes();
-        $this->mapStudentWebRoutes();
-        $this->mapStudentAdminRoutes();
         $this->mapWebhookRoutes();
     }
 
@@ -94,24 +85,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware(['web', 'tenant'])
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
-    }
-
-    protected function mapStudentWebRoutes(): void
-    {
-        Route::middleware(['web', 'tenant'])
-            ->namespace($this->namespace)
-            ->as('student.')
-            ->prefix('student')
-            ->group(base_path('routes/student-web.php'));
-    }
-
-    protected function mapStudentAdminRoutes(): void
-    {
-        Route::middleware(['student-admin','tenant'])
-            ->namespace($this->namespace)
-            ->as('student.admin.')
-            ->prefix('student')
-            ->group(base_path('routes/student-admin.php'));
     }
 
     protected function mapWebhookRoutes(): void

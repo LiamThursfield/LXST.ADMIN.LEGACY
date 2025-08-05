@@ -36,8 +36,8 @@
                             description: "Full SEO tooling to set and update meta for all web pages."
                         },
                         {
-                            header: "Sell Online Courses",
-                            description: "Manage, publish, and sell courses with ease. Video, audio, and text lessons."
+                            header: "Full CRM",
+                            description: "Manage your customers via the built-in CRM."
                         },
                         {
                             header: "Online Ads",

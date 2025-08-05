@@ -38,7 +38,7 @@ class FileManagerDirectoryController extends AbstractFileManagerController
      */
     public function store(FileManagerDirectoryStoreRequest $request)
     {
-        if (!config('sigi.file_manager.uploads.enabled')) {
+        if (!config('lxst_admin.file_manager.uploads.enabled')) {
             abort(403, 'Directory Creation/Uploads are disabled.');
         }
 

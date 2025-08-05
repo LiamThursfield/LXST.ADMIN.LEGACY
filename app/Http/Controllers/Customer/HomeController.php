@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (!config('sigi.web.enabled')) {
+        if (!config('lxst_admin.web.enabled')) {
             return redirect(route('admin.index'));
         }
 

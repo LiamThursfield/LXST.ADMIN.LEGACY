@@ -351,164 +351,6 @@
                         requiresTenantModule: 'crm',
                         showLabel: true,
                     },
-                    edu: {
-                        children : {
-                            announcements: {
-                                activeRoutes: ["admin.edu.announcements.index", "admin.edu.announcements.create", "admin.edu.announcements.edit"],
-                                children: {
-                                    index: {
-                                        icon: false,
-                                        label: "View",
-                                        requiresAllPermissions: ["edu_announcements.view"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.announcements.index",
-                                    },
-                                    create: {
-                                        children: false,
-                                        icon: false,
-                                        label: "Create",
-                                        requiresAllPermissions: ["edu_announcements.create"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.announcements.create",
-                                    }
-                                },
-                                icon: "icon-speaker-phone",
-                                label: "Announcements",
-                                requiresAllPermissions: [],
-                                requiresAnyPermissions: ["edu_announcements.create", "edu_announcements.view"],
-                            },
-                            courses: {
-                                activeRoutes: ["admin.edu.courses.index", "admin.edu.courses.create", "admin.edu.courses.edit"],
-                                children: {
-                                    index: {
-                                        icon: false,
-                                        label: "View Courses",
-                                        requiresAllPermissions: ["edu_courses.view"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.courses.index",
-                                    },
-                                    create: {
-                                        children: false,
-                                        icon: false,
-                                        label: "Create Course",
-                                        requiresAllPermissions: ["edu_courses.create"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.courses.create",
-                                    }
-                                },
-                                icon: "icon-chalkboard",
-                                label: "Courses",
-                                requiresAllPermissions: [],
-                                requiresAnyPermissions: ["edu_courses.create", "edu_courses.view"],
-                            },
-                            programmes: {
-                                activeRoutes: ["admin.edu.programmes.index", "admin.edu.programmes.create", "admin.edu.programmes.edit"],
-                                children: {
-                                    index: {
-                                        icon: false,
-                                        label: "View Programmes",
-                                        requiresAllPermissions: ["edu_programmes.view"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.programmes.index",
-                                    },
-                                    create: {
-                                        children: false,
-                                        icon: false,
-                                        label: "Create Programme",
-                                        requiresAllPermissions: ["edu_programmes.create"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.programmes.create",
-                                    }
-                                },
-                                icon: "icon-box-multiple",
-                                label: "Programmes",
-                                requiresAllPermissions: [],
-                                requiresAnyPermissions: ["edu_programmes.create", "edu_programmes.view"],
-                            },
-                            labels: {
-                                activeRoutes: ["admin.edu.labels.index", "admin.edu.labels.create", "admin.edu.labels.edit"],
-                                children: {
-                                    index: {
-                                        icon: false,
-                                        label: "View Labels",
-                                        requiresAllPermissions: ["edu_labels.view"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.labels.index",
-                                    },
-                                    create: {
-                                        children: false,
-                                        icon: false,
-                                        label: "Create Label",
-                                        requiresAllPermissions: ["edu_labels.create"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.labels.create",
-                                    }
-                                },
-                                icon: "icon-tags",
-                                label: "Labels",
-                                requiresAllPermissions: [],
-                                requiresAnyPermissions: ["edu_labels.create", "edu_labels.view"],
-                            },
-                            purchases: {
-                                activeRoutes: ["admin.edu.course-purchases.index", "admin.edu.course-purchases.show"],
-                                children: {
-                                    index: {
-                                        icon: false,
-                                        label: "View",
-                                        activeRoutes: ["admin.edu.course-purchases.index", "admin.edu.course-purchases.show"],
-                                        requiresAllPermissions: ["edu_course_purchases.view"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.course-purchases.index",
-                                    }
-                                },
-                                icon: "icon-moneybag",
-                                label: "Purchases",
-                                requiresAllPermissions: [],
-                                requiresAnyPermissions: ["edu_course_purchases.view"],
-                            },
-                            webinars: {
-                                activeRoutes: ["admin.edu.webinars.index", "admin.edu.webinars.create", "admin.edu.webinars.edit"],
-                                children: {
-                                    index: {
-                                        icon: false,
-                                        label: "View",
-                                        requiresAllPermissions: ["edu_webinars.view"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.webinars.index",
-                                    },
-                                    create: {
-                                        children: false,
-                                        icon: false,
-                                        label: "Create",
-                                        requiresAllPermissions: ["edu_webinars.create"],
-                                        requiresAnyPermissions: [],
-                                        route: "admin.edu.webinars.create",
-                                    }
-                                },
-                                icon: "icon-camera-check",
-                                label: "Webinars",
-                                requiresAllPermissions: [],
-                                requiresAnyPermissions: ["edu_webinars.create", "edu_webinars.view"],
-                            },
-                        },
-                        label: "EDU",
-                        requiresAllPermissions: [],
-                        requiresAnyPermissions: [
-                            'edu_announcements.create',
-                            'edu_announcements.view',
-                            'edu_courses.create',
-                            'edu_courses.view',
-                            'edu_programmes.create',
-                            'edu_programmes.view',
-                            'edu_labels.create',
-                            'edu_labels.view',
-                            'edu_course_purchases.view',
-                            'edu_webinars.view',
-                            'edu_webinars.create',
-                        ],
-                        requiresTenantModule: 'edu',
-                        showLabel: true,
-                    },
                     utilities: {
                         children : {
                             file_manager: {
@@ -536,13 +378,6 @@
                                         requiresAllPermissions: ["settings.edit"],
                                         requiresAnyPermissions: [],
                                         route: ["admin.settings.edit", 'core'],
-                                    },
-                                    edu: {
-                                        icon: false,
-                                        label: "Edu",
-                                        requiresAllPermissions: ["settings.edit"],
-                                        requiresAnyPermissions: [],
-                                        route: ["admin.settings.edit", 'edu'],
                                     },
                                     theme: {
                                         children: false,
@@ -623,13 +458,13 @@
             metaDescription() {
                 return this.getMetaDataField(
                     'description',
-                    'SIGI - powered by Laravel, Tailwind, Vue, and Inertia'
+                    'LXST.ADMIN - powered by Laravel, Tailwind, Vue, and Inertia'
                 );
             },
             metaTitle() {
                 return this.getMetaDataField(
                     'title',
-                    'SIGI'
+                    'LXST.ADMIN'
                 );
             }
         },

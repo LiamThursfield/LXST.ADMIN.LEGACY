@@ -56,19 +56,19 @@ import TenantFooter from "../../components/core/footer/Footer.vue";
             metaDescription() {
                 return this.getMetaDataField(
                     'description',
-                    'SIGI - powering your online presence'
+                    'LXST.ADMIN - powering your online presence'
                 );
             },
             metaTitle() {
                 return this.getMetaDataField(
                     'title',
-                    'SIGI'
+                    'LXST.ADMIN'
                 );
             },
             metaTenantName() {
                 return this.getMetaDataField(
                     'tenant',
-                    'SIGI'
+                    'LXST.ADMIN'
                 );
             }
         },

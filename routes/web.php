@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Website\EDU\CourseController;
-use App\Http\Controllers\Website\EDU\CoursePurchasePaymentCheckoutController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\PageController;
 use Illuminate\Support\Facades\Route;
@@ -28,22 +26,6 @@ Route::group([
 ], function() {
     // If you want to use the CMS to control the home page - delete this route
     Route::get('/', [HomeController::class, 'index'])->name('index');
-
-    Route::group([
-        'as' => 'edu.',
-    ], function() {
-        Route::group([
-            'as' => 'courses.',
-            'prefix' => 'courses',
-        ], function() {
-            Route::get('/{course:slug}', [CourseController::class, 'show'])->name('show');
-
-            Route::get(
-                '/{course:slug}/purchases/payments/{payment}/{timestamp}',
-                CoursePurchasePaymentCheckoutController::class
-            )->name('purchases.payments.checkout');
-        });
-    });
 });
 
 /** Fallback admin route - ensures Auth() calls work as expected in the exception handler */

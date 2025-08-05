@@ -32,11 +32,11 @@
         name: "AuthLayout",
         metaInfo() {
             return {
-                title: 'SIGI',
+                title: 'LXST.ADMIN',
                 meta: [
                     {
                         name: 'description',
-                        content: 'SIGI',
+                        content: 'LXST.ADMIN',
                     }
                 ]
             }

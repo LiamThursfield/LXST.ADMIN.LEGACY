@@ -1,7 +1,7 @@
- # SIGI
+ # LXST.ADMIN
 
 
-## About SIGI
+## About LXST.ADMIN
 
 ## Core Stack
 - [Laravel](https://laravel.com/)

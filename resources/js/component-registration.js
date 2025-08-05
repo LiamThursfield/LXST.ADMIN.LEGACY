@@ -13,8 +13,6 @@ import AdminLayout from './layouts/admin/AdminLayout.vue';
 Vue.component('admin-layout', AdminLayout);
 import AuthLayout from './layouts/auth/AuthLayout.vue';
 Vue.component('auth-layout', AuthLayout);
-import StudentAdminLayout from './layouts/student/StudentAdminLayout.vue';
-Vue.component('student-admin-layout', StudentAdminLayout);
 import HomeLayout from './layouts/website/HomeLayout.vue';
 Vue.component('home-layout', HomeLayout);
 import WebsiteLayout from './layouts/website/WebsiteLayout.vue';

@@ -5,8 +5,6 @@ use App\Http\Controllers\AdminApi\CMS\TemplateController;
 use App\Http\Controllers\AdminApi\CMS\UrlAvailableController;
 use App\Http\Controllers\AdminApi\CRM\FormController;
 use App\Http\Controllers\AdminApi\CRM\OrganisationUnitController;
-use App\Http\Controllers\AdminApi\EDU\CourseController;
-use App\Http\Controllers\AdminApi\EDU\LectureFileController;
 use App\Http\Controllers\AdminApi\FileManager\FileManagerDirectoryController;
 use App\Http\Controllers\AdminApi\FileManager\FileManagerFileController;
 use App\Http\Controllers\AdminApi\Settings\MailerTestController;
@@ -39,15 +37,6 @@ Route::group([
     Route::get('/organisation-units', [OrganisationUnitController::class, 'index'])->name('organisation-units.index');
 
     Route::get('/form', [FormController::class, 'index'])->name('forms.index');
-});
-
-Route::group([
-    'as' => 'edu.',
-    'prefix' => 'edu',
-    'middleware' => ['tenant.module:edu']
-], function() {
-    Route::get('/course', [CourseController::class, 'index'])->name('courses.index');
-    Route::get('/lecture/{lecture_id}/files', [LectureFileController::class, 'show'])->name('lectures.files.show');
 });
 
 Route::group([

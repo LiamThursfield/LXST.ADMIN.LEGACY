@@ -18,14 +18,6 @@
                                 class="hover:text-theme-primary-hover"
                                 href="#"
                             >
-                                {{ __('messages.courses') }}
-                            </inertia-link>
-                        </li>
-                        <li>
-                            <inertia-link
-                                class="hover:text-theme-primary-hover"
-                                href="#"
-                            >
                                 {{ __('messages.about') }}
                             </inertia-link>
                         </li>
@@ -51,11 +43,11 @@
         name: "WebsiteLayout",
         metaInfo() {
             return {
-                title: 'SIGI',
+                title: 'LXST.ADMIN',
                 meta: [
                     {
                         name: 'description',
-                        content: 'SIGI - powered by Laravel, Tailwind, Vue, and Inertia',
+                        content: 'LXST.ADMIN - powered by Laravel, Tailwind, Vue, and Inertia',
                     }
                 ]
             }

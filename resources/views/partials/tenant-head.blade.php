@@ -5,7 +5,7 @@
 
 @if($theme)
     <style>
-        #website-layout, #basic-layout, #course-layout {
+        #website-layout, #basic-layout {
             {{ $theme->getColorsAsCssString() }}
         }
     </style>
