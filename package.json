@@ -13,7 +13,7 @@
         "@tinymce/tinymce-vue": "^3",
         "@vitejs/plugin-vue2": "^1.1.2",
         "autoprefixer": "^10.1.0",
-        "axios": "^0.21.1",
+        "axios": "^0.30.0",
         "cross-env": "^7.0",
         "dayjs": "^1.10.3",
         "es6-promise": "^4.2.8",
