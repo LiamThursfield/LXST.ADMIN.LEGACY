@@ -1,4 +1,3 @@
-version: '3'
 services:
     laravel.test:
         build:
@@ -18,7 +17,7 @@ services:
             XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
-            PHP_IDE_CONFIG: 'serverName=Docker'
+            PHP_IDE_CONFIG: serverName=Docker
         volumes:
             - '.:/var/www/html'
         networks:
@@ -26,6 +25,8 @@ services:
         depends_on:
             - mysql
             - redis
+            - minio
+            - mailpit
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -66,6 +67,34 @@ services:
                 - ping
             retries: 3
             timeout: 5s
+    minio:
+        image: 'minio/minio:latest'
+        ports:
+            - '${FORWARD_MINIO_PORT:-9000}:9000'
+            - '${FORWARD_MINIO_CONSOLE_PORT:-8900}:8900'
+        environment:
+            MINIO_ROOT_USER: sail
+            MINIO_ROOT_PASSWORD: password
+        volumes:
+            - 'sail-minio:/data/minio'
+        networks:
+            - sail
+        command: 'minio server /data/minio --console-address ":8900"'
+        healthcheck:
+            test:
+                - CMD
+                - curl
+                - '-f'
+                - 'http://localhost:9000/minio/health/live'
+            retries: 3
+            timeout: 5s
+    mailpit:
+        image: 'axllent/mailpit:latest'
+        ports:
+            - '${FORWARD_MAILPIT_PORT:-1025}:1025'
+            - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
@@ -73,4 +102,6 @@ volumes:
     sail-mysql:
         driver: local
     sail-redis:
+        driver: local
+    sail-minio:
         driver: local
