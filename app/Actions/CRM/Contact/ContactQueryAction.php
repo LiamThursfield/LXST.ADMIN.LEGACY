@@ -9,6 +9,10 @@ use Illuminate\Support\Arr;
 
 class ContactQueryAction extends AbstractQueryAction
 {
+    protected array $searchable_fields_equals = [
+        'is_spam' => 'contact_is_spam'
+    ];
+
     protected array $searchable_fields_likes = [
         'email'         => 'contact_email',
         'first_name'    => 'contact_first_name',

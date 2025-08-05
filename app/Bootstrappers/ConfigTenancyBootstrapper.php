@@ -5,7 +5,9 @@ namespace App\Bootstrappers;
 use App\Traits\Base\ManagesTenancyMailer;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View as ViewFacade;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Spatie\LaravelSettings\Exceptions\MissingSettings;
 use Stancl\Tenancy\Contracts\TenancyBootstrapper;
@@ -22,6 +24,8 @@ class ConfigTenancyBootstrapper implements TenancyBootstrapper
 
             $this->setMailConfigForTenant($tenant);
 
+            $this->setFileManagerConfig($tenant);
+
             $this->registerViewComposers();
         } catch (QueryException | MissingSettings $e) {
             // For initial migration of setting, this may not be set. No need to fail
@@ -31,6 +35,21 @@ class ConfigTenancyBootstrapper implements TenancyBootstrapper
     public function revert()
     {
         // Don't need to do anything here as there is no reverting in a single request to worry about
+    }
+
+    public function setFileManagerConfig(Tenant $tenant): void
+    {
+        $configKey = 'filesystems.disks.file_manager.root';
+
+        $root = Config::get($configKey) ?? '';
+
+        if (Str::length($root) && Str::endsWith($root, '/') === false) {
+            $root .= '/';
+        }
+
+        $root .= $tenant->id;
+
+        Config::set($configKey, $root);
     }
 
     public function registerViewComposers(): void

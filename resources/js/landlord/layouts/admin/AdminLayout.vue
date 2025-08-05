@@ -9,7 +9,7 @@
                 :menu="sideMenu"
             />
 
-            <div class="flex flex-1 flex-col max-w-full">
+            <div class="admin-section">
                 <top-menu />
 
                 <page-alerts />

@@ -142,4 +142,8 @@
      */
     --ring-color-primary: rgba(255, 130, 246, var(--tw-ring-opacity));
 
+    /**
+     * Side Menu
+     */
+    --side-menu-width-desktop: 16rem;
 }

@@ -1,0 +1,18 @@
+/*
+ * Admin - Base
+ */
+
+#admin-layout {
+    .admin-section {
+        @apply flex flex-1 flex-col max-w-full;
+    }
+}
+
+/** Desktop View **/
+@screen lg {
+    #admin-layout {
+        .admin-section {
+            max-width: calc(100% - var(--side-menu-width-desktop));
+        }
+    }
+}

@@ -12,7 +12,7 @@
                     />
                 </div>
             </div>
-            <div class="flex flex-col items-center md:flex-row md:items-start">
+            <div class="flex flex-col items-center md:flex-col md:items-center">
 <!--                <img-->
 <!--                    class="rounded-lg w-60"-->
 <!--                    :src="course.primary_image"-->

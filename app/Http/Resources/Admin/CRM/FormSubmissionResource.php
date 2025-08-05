@@ -15,6 +15,7 @@ class FormSubmissionResource extends BaseResource
             'form'          => FormResource::make($this->whenLoaded('form')),
             'form_id'       => $this->form_id,
             'id'            => $this->id,
+            'is_spam'       => $this->is_spam,
             'submitted_at'  => $this->formatDateTime($this->submitted_at),
         ];
     }

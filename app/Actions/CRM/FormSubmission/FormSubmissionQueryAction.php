@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Builder;
 
 class FormSubmissionQueryAction extends AbstractQueryAction
 {
+    protected array $searchable_fields_equals = [
+        'is_spam' => 'form_is_spam'
+    ];
+
     protected array $searchable_fields_likes = [
         'form_id' => 'form_id',
     ];

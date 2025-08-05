@@ -31,10 +31,9 @@ class FormSubmission extends Model
         'submitted_at'  => 'datetime',
     ];
 
-
     public function contact(): BelongsTo
     {
-        return $this->belongsTo(Contact::class);
+        return $this->belongsTo(Contact::class)->withTrashed();
     }
 
     public function form(): BelongsTo

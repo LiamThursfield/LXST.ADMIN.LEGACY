@@ -43,9 +43,10 @@
 <script>
     import _ from 'lodash';
     import CmsMenuField from "./content_fields/CmsMenuField.vue";
+    import ComponentField from "./content_fields/ComponentField.vue";
     import CrmFormField from "./content_fields/CrmFormField.vue";
-    import EduCourseField from "./content_fields/EduCourseField.vue";
     import CrmOrganisationUnitField from "./content_fields/CrmOrganisationUnitField.vue";
+    import EduCourseField from "./content_fields/EduCourseField.vue";
     import ImageField from "./content_fields/ImageField.vue";
     import NumberField from "./content_fields/NumberField.vue";
     import RepeaterField from "./content_fields/RepeaterField.vue";
@@ -57,6 +58,7 @@
         name: 'AdminCmsContentEditor',
         components: {
             CmsMenuField,
+            ComponentField,
             CrmFormField,
             CrmOrganisationUnitField,
             EduCourseField,
@@ -100,6 +102,8 @@
                 switch (templateField.type) {
                     case 'cms_menu':
                         return 'CmsMenuField';
+                    case 'component':
+                        return 'ComponentField';
                     case 'crm_form':
                         return 'CrmFormField';
                     case 'crm_organisation_unit':

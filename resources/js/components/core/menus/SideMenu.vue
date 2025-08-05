@@ -119,6 +119,14 @@
                     }
                 }
 
+                if (
+                    menu.hasOwnProperty('requiresTenantModule') &&
+                    menu.requiresTenantModule &&
+                    ! this.tenantHasModule(menu.requiresTenantModule)
+                ) {
+                    return false;
+                }
+
                 return this.userCanAny(menu.requiresAnyPermissions) && this.userCanAll(menu.requiresAllPermissions);
             },
             getVisibleMenuWithChildren(menu) {

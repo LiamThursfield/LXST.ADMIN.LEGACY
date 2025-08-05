@@ -9,7 +9,10 @@
             :form-data-overrides="{
                 'course_name': course.name
             }"
-            :title-override="transWithFallback('messages.register_interest', 'Register Interest')"
+            :title-override="titleOverride"
+            :title-class="titleClass"
+            :button-class="buttonClass"
+            :button-div-class="buttonDivClass"
         />
     </section>
 </template>
@@ -30,6 +33,22 @@
             form: {
                 required: true,
                 type: Object,
+            },
+            buttonDivClass: {
+                default: 'text-center',
+                type: String,
+            },
+            buttonClass: {
+                default: 'button button-primary ml-auto',
+                type: String,
+            },
+            titleClass: {
+                default: 'font-bold text-lg pb-5',
+                type: String
+            },
+            titleOverride: {
+                default: '',
+                type: String,
             }
         }
     }

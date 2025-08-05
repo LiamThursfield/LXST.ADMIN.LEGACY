@@ -27,7 +27,8 @@ return [
     'register' => 'Înregistrează-te',
     'already-registered' => 'Deja înregistrat?',
     'create-a-new-account' => 'Creați un cont nou',
-    'register-for-course' => 'Înregistrează-te la curs',
+    'register-for-course' => 'Înregistrează-te la cursul ":name"',
+    'apply-now' => 'Aplică acum',
 
     'profile' => 'Profil',
     'my-profile' => 'Profilul meu',
@@ -86,6 +87,7 @@ return [
     'purchases' => 'Achiziții',
     'webinars' => 'Webinarii',
     'weekly-webinars' => 'Webinarii Săptămânale',
+    'biweekly-webinars' => 'Webinarii Bisăptămânale',
     'file-manager' => 'File Manager',
     'view' => 'Vezi',
     'create' => 'Crează',

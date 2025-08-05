@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Interfaces\RoleInterface;
+use App\Models\Tenant;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\UrlWindow;
 use Illuminate\Support\Collection;
@@ -161,8 +162,15 @@ class InertiaServiceProvider extends ServiceProvider
                 ];
             },
             'tenant' => function () {
+            /** @var ?Tenant $tenant */
+                $tenant = tenant();
+                if ($tenant === null) {
+                    return [];
+                }
+
                 return [
-                    'id' => tenant()->id ?? null,
+                    'id'        => $tenant->id,
+                    'modules'   => $tenant->modules,
                 ];
             }
         ]);

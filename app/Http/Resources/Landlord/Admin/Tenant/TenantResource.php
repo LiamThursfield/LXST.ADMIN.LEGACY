@@ -11,7 +11,8 @@ class TenantResource extends JsonResource
        return [
            'id' => $this->id,
            'tenancy_db_name' => $this->tenancy_db_name,
-           'domains' => TenantDomainResource::collection($this->whenLoaded('domains'))
+           'domains' => TenantDomainResource::collection($this->whenLoaded('domains')),
+           'modules' => $this->modules,
        ];
     }
 }

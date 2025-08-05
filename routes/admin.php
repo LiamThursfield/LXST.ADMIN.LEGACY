@@ -43,7 +43,8 @@ Route::group([
 
 Route::group([
     'as' => 'cms.',
-    'prefix' => 'cms'
+    'prefix' => 'cms',
+    'middleware' => ['tenant.module:cms']
 ], function () {
     Route::resource('layouts', LayoutController::class);
     Route::resource('menus', MenuController::class);
@@ -55,7 +56,8 @@ Route::group([
 
 Route::group([
     'as' => 'crm.',
-    'prefix' => 'crm'
+    'prefix' => 'crm',
+    'middleware' => ['tenant.module:crm']
 ], function () {
     Route::resource('contacts', ContactController::class);
     Route::resource('form-submissions', FormSubmissionController::class)->only([
@@ -67,7 +69,8 @@ Route::group([
 
 Route::group([
     'as' => 'edu.',
-    'prefix' => 'edu'
+    'prefix' => 'edu',
+    'middleware' => ['tenant.module:edu']
 ], function () {
     Route::resource('announcements', AnnouncementController::class);
     Route::patch('/announcements/publish/{announcement}', [AnnouncementController::class, 'publish'])

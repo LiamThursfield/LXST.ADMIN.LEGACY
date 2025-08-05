@@ -27,19 +27,10 @@
                     </inertia-link>
 
                     <a
-                        v-if="course.status === 'PUBLISHED'"
-                        class="animate-bg-primary-to-secondary button button-primary font-semibold rounded-full"
-                        href="#purchase"
-                    >
-                        {{ __('messages.sign-up') }}
-                    </a>
-
-                    <a
-                        v-else
                         class="animate-bg-primary-to-secondary button button-primary font-semibold rounded-full"
                         href="#interest-form"
                     >
-                        {{ transWithFallback('messages.register_interest', 'Register Interest') }}
+                        {{ __('messages.apply-now') }}
                     </a>
                 </div>
             </nav>

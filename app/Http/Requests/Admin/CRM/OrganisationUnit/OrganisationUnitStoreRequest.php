@@ -26,7 +26,6 @@ class OrganisationUnitStoreRequest extends BaseRequest
                 }),
             ],
             'email' => 'required|email',
-            'name' => 'required|string',
             'location_id' => [
                 'required_if:type,' . OrganisationUnitInterface::TYPE_DEPARTMENT,
                 'nullable',
@@ -35,6 +34,8 @@ class OrganisationUnitStoreRequest extends BaseRequest
                     return $query->where('type', OrganisationUnitInterface::TYPE_LOCATION);
                 }),
             ],
+            'mobile_phone' => 'nullable|string',
+            'name' => 'required|string',
             'notification_email' => 'nullable|array',
             'notification_email.*' => 'email',
             'parent_id' => [

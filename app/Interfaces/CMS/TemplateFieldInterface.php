@@ -6,6 +6,7 @@ class TemplateFieldInterface
 {
     // Template field types
     const TYPE_CMS_MENU = 'cms_menu';
+    const TYPE_COMPONENT = 'component';
     const TYPE_CRM_FORM = 'crm_form';
     const TYPE_CRM_ORGANISATION_UNIT = 'crm_organisation_unit';
     const TYPE_EDU_COURSE = 'edu_course';
@@ -18,6 +19,7 @@ class TemplateFieldInterface
 
     const ALL_TYPES = [
         self::TYPE_CMS_MENU,
+        self::TYPE_COMPONENT,
         self::TYPE_CRM_FORM,
         self::TYPE_CRM_ORGANISATION_UNIT,
         self::TYPE_EDU_COURSE,
@@ -31,6 +33,7 @@ class TemplateFieldInterface
 
     // Labelled types - typically used for showing the types to a user
     const ALL_TYPES_LABELLED = [
+        self::TYPE_COMPONENT                => "Component",
         self::TYPE_CMS_MENU                 => "CMS Menu",
         self::TYPE_CRM_FORM                 => "CRM Form",
         self::TYPE_CRM_ORGANISATION_UNIT    => "CRM Organisation Unit",
@@ -43,6 +46,16 @@ class TemplateFieldInterface
         self::TYPE_WYSIWYG                  => "WYSIWYG",
     ];
 
+    // Types that are allowed to be used in a component -- essentially any that don't have relationships
+    const COMPONENT_TYPES = [
+        self::TYPE_IMAGE,
+        self::TYPE_NUMBER,
+        self::TYPE_REPEATER,
+        self::TYPE_TEXT,
+        self::TYPE_TEXTAREA,
+        self::TYPE_WYSIWYG,
+    ];
+
     // Types that are allowed to be used in a repeater -- essentially any that don't have relationships
     const REPEATER_TYPES = [
         self::TYPE_IMAGE,
@@ -51,6 +64,17 @@ class TemplateFieldInterface
         self::TYPE_TEXTAREA,
         self::TYPE_WYSIWYG,
     ];
+
+    static function getAllComponentTypesLabelled() : array
+    {
+        $types = [];
+
+        foreach (self::COMPONENT_TYPES as $type) {
+            $types[$type] = self::ALL_TYPES_LABELLED[$type];
+        }
+
+        return $types;
+    }
 
     static function getAllRepeaterTypesLabelled() : array
     {
@@ -65,6 +89,7 @@ class TemplateFieldInterface
 
     // Types that should be cast/stored as JSON
     const JSON_TYPES = [
+        self::TYPE_COMPONENT,
         self::TYPE_REPEATER
     ];
 
@@ -72,6 +97,9 @@ class TemplateFieldInterface
     // Default settings for each type
     const SETTINGS = [
         self::TYPE_CMS_MENU => [],
+        self::TYPE_COMPONENT => [
+            'template_id' => '',
+        ],
         self::TYPE_CRM_FORM => [],
         self::TYPE_CRM_ORGANISATION_UNIT => [],
         self::TYPE_EDU_COURSE => [],

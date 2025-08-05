@@ -103,6 +103,20 @@
                         v-model="editableSearchOptions.contact_telephone"
                     />
                 </div>
+
+                <div class="w-full md:w-1/4">
+                    <select-group
+                        :label-hidden="true"
+                        label-text="Is Spam"
+                        :input-any-option-enabled="true"
+                        input-any-option-label="Is Spam (Any)"
+                        input-class="form-control form-control-short"
+                        input-id="contact_is_spam"
+                        input-name="contact_is_spam"
+                        :input-options="{'0': 'Not Spam', '1': 'Is Spam'}"
+                        v-model="editableSearchOptions.contact_is_spam"
+                    />
+                </div>
             </div>
 
             <!-- No Results -->
@@ -122,6 +136,7 @@
                     >
                         <thead>
                             <tr>
+                                <th class="indicator-column w-0"></th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Telephone</th>
@@ -133,6 +148,14 @@
                                 v-for="(contact, index) in contactsData"
                                 :key="`contact-${contact.id}`"
                             >
+                                <td class="indicator-column">
+                                    <div
+                                        v-if="contact.is_spam"
+                                        title="Spam Account"
+                                    >
+                                        <icon-flag-exclamation class="h-4 text-theme-danger-contrast w-4" />
+                                    </div>
+                                </td>
                                 <td>
                                     {{ contact.name_with_title }}
                                 </td>
@@ -205,10 +228,12 @@
     import { router } from '@inertiajs/vue2';
     import ConfirmationModal from "../../../../components/core/modals/ConfirmationModal.vue";
     import InputGroup from "../../../../components/core/forms/InputGroup.vue";
+    import SelectGroup from "../../../../components/core/forms/SelectGroup.vue";
 
     export default {
         name: "AdminCrmContactIndex",
         components: {
+            SelectGroup,
             ConfirmationModal,
             InputGroup
         },
@@ -228,6 +253,7 @@
                 editableSearchOptions: {
                     contact_email       : '',
                     contact_first_name  : '',
+                    contact_is_spam     : '',
                     contact_last_name   : '',
                     contact_telephone   : '',
                     per_page            : 15,
@@ -318,6 +344,7 @@
                 let options = {
                     contact_email       : '',
                     contact_first_name  : '',
+                    contact_is_spam     : '',
                     contact_last_name   : '',
                     contact_telephone   : '',
                     per_page            : 15,

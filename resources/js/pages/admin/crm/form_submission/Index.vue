@@ -46,6 +46,20 @@
                         v-model="editableSearchOptions.form_id"
                     />
                 </div>
+
+                <div class="w-full md:w-1/4">
+                    <select-group
+                        :label-hidden="true"
+                        label-text="Is Spam"
+                        :input-any-option-enabled="true"
+                        input-any-option-label="Is Spam (Any)"
+                        input-class="form-control form-control-short"
+                        input-id="contact_is_spam"
+                        input-name="contact_is_spam"
+                        :input-options="{'0': 'Not Spam', '1': 'Is Spam'}"
+                        v-model="editableSearchOptions.form_is_spam"
+                    />
+                </div>
             </div>
 
             <p
@@ -61,6 +75,7 @@
                     <table class="table table-hover table-striped w-full">
                         <thead>
                         <tr>
+                            <th class="indicator-column w-0"></th>
                             <th>Contact</th>
                             <th>Form</th>
                             <th>Submitted At</th>
@@ -72,6 +87,15 @@
                             v-for="submission in formSubmissionsData"
                             :key="`template-${submission.id}`"
                         >
+                            <td class="indicator-column">
+                                <div
+                                    v-if="submission.is_spam"
+                                    title="Spam"
+                                >
+                                    <icon-flag-exclamation class="h-4 text-theme-danger-contrast w-4" />
+                                </div>
+                            </td>
+
                             <td>
                                 <div v-if="!submission.contact_id">
                                     -

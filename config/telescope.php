@@ -76,7 +76,7 @@ return [
     */
 
     'middleware' => [
-        'web',
+        'landlord-web', // Has no CheckForCmsRedirect
         Authorize::class,
     ],
 

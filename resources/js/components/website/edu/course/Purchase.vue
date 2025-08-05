@@ -57,7 +57,7 @@
                              {{ course.current_price | priceDecimal }} Euro
                         </span>
                         <small class="font-weight-lighter">
-                            *{{ __('messages.pay-in-full-note', { savingPercentage: 40 }) }}
+                            *{{ __('messages.pay-in-full-note', { savingPercentage: 35 }) }}
                         </small>
                     </button>
 

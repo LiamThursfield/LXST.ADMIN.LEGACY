@@ -85,6 +85,27 @@
 
         <div class="bg-white mt-6 py-6 shadow-subtle rounded-lg">
             <div class="block px-6 w-full">
+                <span class="font-medium text-theme-base-contrast tracking-wider">
+                    Modules
+                </span>
+
+                <div class="mt-4 space-y-4">
+                    <inline-checkbox-group
+                        v-for="(isEnabled, moduleKey) in enabledModules"
+                        :key="`module-${moduleKey}`"
+                        :input-id="`module-${moduleKey}`"
+                        :input-name="`module-${moduleKey}`"
+                        :label-text="modules[moduleKey]"
+                        :input-value-true="true"
+                        :input-value-false="false"
+                        v-model="enabledModules[moduleKey]"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white mt-6 py-6 shadow-subtle rounded-lg">
+            <div class="block px-6 w-full">
                 <div class="flex flex-row items-center mb-4">
                     <span class="font-medium text-theme-base-contrast tracking-wider">
                         Domains
@@ -212,11 +233,11 @@
 </template>
 
 <script>
+    import _ from 'lodash';
     import InlineCheckboxGroup from "../../../../components/core/forms/InlineCheckboxGroup.vue";
     import InputGroup from "../../../../components/core/forms/InputGroup.vue";
     import ConfirmationModal from "../../../../components/core/modals/ConfirmationModal.vue";
     import GenericModal from "../../../../components/core/modals/GenericModal.vue";
-    import {router} from "@inertiajs/vue2";
 
     export default {
         name: "AdminTenantEdit",
@@ -228,6 +249,10 @@
         },
         layout: 'admin-layout',
         props: {
+            modules: {
+                required: true,
+                type: Object,
+            },
             tenant: {
                 required: true,
                 type: Object,
@@ -237,6 +262,7 @@
             return {
                 domainData: null,
                 domainIndexToDelete: null,
+                enabledModules: {},
                 formData: null,
                 isLoadingDomain: false,
                 showAddDomainModal: false,
@@ -257,12 +283,29 @@
                 } catch (e) {
                     return null;
                 }
+            },
+            enabledModulesFormatted() {
+                let modules = []
+                _.forEach(this.enabledModules, (isEnabled, module) => {
+                    if (isEnabled) {
+                        modules.push(module);
+                    }
+                });
+
+                return modules;
             }
         },
         created() {
             this.formData = {
                 id: this.tenant.id,
+                modules: [],
             };
+
+            // Initialise enabled modules
+            _.forEach(this.modules, (moduleName, moduleKey) => {
+                let enabled = this.tenant.modules && this.tenant.modules.indexOf(moduleKey) >= 0;
+                this.$set(this.enabledModules, moduleKey, enabled);
+            });
         },
         methods: {
             addDomain() {
@@ -336,8 +379,9 @@
             },
 
             submit() {
+                this.formData.modules = _.clone(this.enabledModulesFormatted);
                 this.$inertia.put(
-                    this.$route('landlord.admin.tenants`.update', this.user.id),
+                    this.$route('landlord.admin.tenants.update', this.tenant.id),
                     this.formData
                 );
             }

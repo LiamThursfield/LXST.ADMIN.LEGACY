@@ -9,7 +9,8 @@ class FormSubmissionIndexRequest extends BaseIndexRequest
     public function rules() : array
     {
         return array_merge(parent::rules(), [
-            'form_id' => 'nullable|numeric',
+            'form_id'       => 'nullable|numeric',
+            'form_is_spam'  => 'nullable|boolean',
         ]);
     }
 }

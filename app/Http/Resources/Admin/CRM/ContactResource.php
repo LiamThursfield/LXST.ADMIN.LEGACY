@@ -12,6 +12,7 @@ class ContactResource extends JsonResource
             'email'                 => $this->email,
             'first_name'            => $this->first_name,
             'id'                    => $this->id,
+            'is_spam'               => $this->is_spam,
             'last_name'             => $this->last_name,
             'marketing_email'       => $this->marketing_email,
             'marketing_sms'         => $this->marketing_sms,

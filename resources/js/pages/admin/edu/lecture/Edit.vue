@@ -311,7 +311,7 @@ export default {
             };
 
             axios.get(
-                this.$route('admin.api.file-manager.files.show', this.formData.id),
+                this.$route('admin.api.lectures.files.show', this.formData.id),
                 {
                     params,
                     cancelToken: filesCancelToken.token

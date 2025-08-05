@@ -35,6 +35,7 @@ class FileManagerFileStoreAction
         $directory = $this->formatDirectory($directory);
         $filename = $this->getFileName($directory, $file);
 
+        // TODO: Move this to EduFileManagerStoreAction
         if ($request->has('lecture')) {
             $lectureFiles = new LectureFiles();
             $lectureFiles->fill([
@@ -45,6 +46,7 @@ class FileManagerFileStoreAction
             $lectureFiles->save();
         }
 
+        // TODO: Move this to EduFileManagerStoreAction
         if ($request->has('section')) {
             $sectionFiles = new SectionFiles();
             $sectionFiles->fill([

@@ -76,6 +76,27 @@
                 />
             </div>
         </div>
+
+        <div class="bg-white mt-6 py-6 shadow-subtle rounded-lg">
+            <div class="block px-6 w-full">
+                <span class="font-medium text-theme-base-contrast tracking-wider">
+                    Modules
+                </span>
+
+                <div class="mt-4 space-y-4">
+                    <inline-checkbox-group
+                        v-for="(isEnabled, moduleKey) in enabledModules"
+                        :key="`module-${moduleKey}`"
+                        :input-id="`module-${moduleKey}`"
+                        :input-name="`module-${moduleKey}`"
+                        :label-text="modules[moduleKey]"
+                        :input-value-true="true"
+                        :input-value-false="false"
+                        v-model="enabledModules[moduleKey]"
+                    />
+                </div>
+            </div>
+        </div>
     </form>
 </template>
 
@@ -91,13 +112,39 @@
             InputGroup,
         },
         layout: 'admin-layout',
+        props: {
+            modules: {
+                required: true,
+                type: Object,
+            },
+        },
         data() {
             return {
+                enabledModules: {},
                 formData: {
                     id: '',
+                    modules: [],
                 },
                 isLoading: false,
             }
+        },
+        computed: {
+            enabledModulesFormatted() {
+                let modules = []
+                _.forEach(this.enabledModules, (isEnabled, module) => {
+                    if (isEnabled) {
+                        modules.push(module);
+                    }
+                });
+
+                return modules;
+            }
+        },
+        created() {
+            // Initialise all modules to disabled
+            _.forEach(this.modules, (moduleName, moduleKey) => {
+                this.$set(this.enabledModules, moduleKey, false);
+            });
         },
         methods: {
             submit() {
@@ -106,6 +153,8 @@
                 }
 
                 this.isLoading = true;
+
+                this.formData.modules = _.clone(this.enabledModulesFormatted);
 
                 this.$inertia.post(
                     this.$route('landlord.admin.tenants.store'),

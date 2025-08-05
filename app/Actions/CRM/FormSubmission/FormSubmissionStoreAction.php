@@ -40,13 +40,18 @@ class FormSubmissionStoreAction
 
             $contact = $this->createOrUpdateCrmContact();
 
+            $isSpam = $contact->is_spam ?? false;
+
             $formSubmission = FormSubmission::create([
                 'contact_id'    => $contact ? $contact->id : null,
                 'data'          => $this->submissionData,
                 'form_id'       => $this->form->id,
+                'is_spam'       => $isSpam
             ]);
 
-            $this->sendSubmissionNotification($formSubmission);
+            if (!$isSpam) {
+                $this->sendSubmissionNotification($formSubmission);
+            }
 
             DB::commit();
 

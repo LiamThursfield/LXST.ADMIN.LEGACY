@@ -11,6 +11,7 @@ class ContactIndexRequest extends BaseIndexRequest
         return array_merge(parent::rules(), [
             'contact_email'        => 'nullable|string',
             'contact_first_name'   => 'nullable|string',
+            'contact_is_spam'      => 'nullable|boolean',
             'contact_last_name'    => 'nullable|string',
             'contact_telephone'    => 'nullable|string',
         ]);

@@ -1,6 +1,6 @@
 <template>
     <main class="bg-theme-base text-theme-base-contrast">
-        <course-header :course="course" />
+        <course-header-full-video :course="course" />
 
         <course-features :course="course" />
 
@@ -8,7 +8,10 @@
 
         <course-description :course="course" />
 
-        <course-call-to-action :data="courseCallToActionText" />
+        <course-call-to-action
+            :data="courseCallToActionText"
+            :url="`#interest-form`"
+        />
 
         <faq :faqs="faqs" />
 
@@ -17,17 +20,14 @@
             :name="authorName"
         />
 
-        <purchase
-            v-if="course.status === 'PUBLISHED'"
-            class="bg-theme-base-subtle"
-            :course="course"
-        />
-
         <course-interest-form
-            v-else-if="interestForm"
             class="bg-theme-base-subtle "
             :course="course"
             :form="interestForm"
+            :title-class="`font-bold text-lg pb-5`"
+            :button-div-class="`flex flex-row justify-center`"
+            :button-class="`animate-bg-primary-to-secondary button button-primary flex flex-row justify-center max-w-250px mt-6 rounded-full text-xl w-full`"
+            :title-override="courseInterestFormTitleOverride"
         />
 
         <testimonials :testimonials="testimonials" />
@@ -56,6 +56,7 @@
     import StandardForm from "../../components/website/cms/forms/StandardForm.vue";
     import CourseInterestForm from "../../components/website/edu/course/CourseInterestForm.vue";
     import CourseCallToAction from "../../components/website/edu/course/CourseCallToAction.vue";
+    import CourseHeaderFullVideo from "../../components/website/edu/course/CourseHeaderFullVideo.vue";
 
     export default {
         name: "CoursePage",
@@ -63,6 +64,7 @@
             pageWithMetaMixin
         ],
         components: {
+            CourseHeaderFullVideo,
             CourseCallToAction,
             CourseInterestForm,
             StandardForm,
@@ -126,6 +128,9 @@
                     return null;
                 }
             },
+            courseInterestFormTitleOverride() {
+                return 'Aplică acum și programează o întâlnire gratuită cu mine! Află dacă acest program este exact ceea ce ai nevoie pentru a-ți transforma viața și a învinge panica!';
+            }
         },
         methods: {
 

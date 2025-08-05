@@ -49,7 +49,7 @@
             </div>
 
             <slot name="button">
-                <div class="text-right">
+                <div :class="buttonDivClass">
                     <button
                         :class="buttonClass"
                         :disabled="isLoading"
@@ -83,6 +83,10 @@
         name: "StandardForm",
         components: {TextAreaGroup, InputGroup},
         props: {
+            buttonDivClass: {
+                default: 'text-right',
+                type: String,
+            },
             buttonClass: {
                 default: 'button button-primary ml-auto',
                 type: String,

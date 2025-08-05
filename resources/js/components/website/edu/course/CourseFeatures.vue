@@ -59,7 +59,7 @@
                     {
                         feature_name: 'has_webinars',
                         icon: 'icon-camera-check',
-                        label: 'messages.weekly-webinars'
+                        label: 'messages.biweekly-webinars'
                     },
                     {
                         force_active: true,

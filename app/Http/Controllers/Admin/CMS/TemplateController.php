@@ -33,6 +33,9 @@ class TemplateController extends AdminCMSAdvancedController
     {
         $this->addMetaTitleSection('Create')->shareMeta();
         return Inertia::render('admin/cms/template/Create', [
+            'componentTemplateFieldTypes' => function () {
+                return TemplateFieldInterface::getAllComponentTypesLabelled();
+            },
             'repeaterTemplateFieldTypes' => function () {
                 return TemplateFieldInterface::getAllRepeaterTypesLabelled();
             },

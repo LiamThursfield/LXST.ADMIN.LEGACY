@@ -6,7 +6,7 @@
  */
 
 .mce-content-body {
-    @apply prose;
+    @apply prose max-w-none;
 }
 
 /* purgecss end ignore */

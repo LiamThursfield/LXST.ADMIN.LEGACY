@@ -6,6 +6,7 @@ import { store } from './store/admin';
 import { createInertiaApp } from '@inertiajs/vue2';
 
 import './plugins/dayjs';
+import './plugins/tenant';
 import './plugins/toasted';
 import './plugins/vue2-datepicker';
 import './plugins/vue-cookies';
@@ -25,8 +26,6 @@ import './component-registration';
 import './inertia-events';
 
 import '../css/app.css';
-import '../css/tinymce/content.css';
-import '../css/tinymce/skin.css';
 
 const app = createInertiaApp({
     progress: {

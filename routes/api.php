@@ -23,6 +23,7 @@ Route::get('/page', [PageController::class, 'show'])->name('page');
 Route::group([
     'as' => 'edu.',
     'prefix' => 'edu',
+    'middleware' => ['tenant.module:edu']
 ], function() {
     Route::group([
         'as' => 'courses.',

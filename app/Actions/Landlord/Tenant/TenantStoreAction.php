@@ -9,9 +9,7 @@ class TenantStoreAction
     public function handle(array $tenant_data, ?string $domain = null): Tenant
     {
         /** @var Tenant $tenant */
-        $tenant = Tenant::create([
-            'id' => $tenant_data['id']
-        ]);
+        $tenant = Tenant::create($tenant_data);
 
         if ($domain) {
             $tenant->domains()->create([

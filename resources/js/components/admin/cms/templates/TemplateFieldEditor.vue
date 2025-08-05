@@ -36,7 +36,7 @@
                 >
                     <article
                         v-for="(templateField, index) in editableTemplateFields"
-                        :key="`template-field-${index}`"
+                        :key="`template-field-${index}-${templateField.uuid}`"
                         class="border-2 border-theme-base-subtle mt-4 overflow-hidden rounded"
                     >
                         <!-- Draggable Header -->
@@ -148,12 +148,16 @@
                 this.isAutofocusDisabled = true;
             }
             this.editableTemplateFields = _.cloneDeep(this.templateFields);
+            _.forEach(this.editableTemplateFields, (field, index) => {
+                this.$set(this.editableTemplateFields[index], 'uuid', _.uniqueId());
+            })
         },
         methods: {
             addTemplateField() {
                 this.isAutofocusDisabled = false;
 
                 this.editableTemplateFields.push({
+                    uuid: _.uniqueId(),
                     description: '',
                     is_required: false,
                     name: '',
@@ -217,7 +221,7 @@
                     }
 
                     this.editableTemplateFields.forEach((field, index) => {
-                        this.editableTemplateFields[index].order = index;
+                        this.$set(this.editableTemplateFields[index], 'order', index);
                     });
 
                     this.updateTemplateFields();

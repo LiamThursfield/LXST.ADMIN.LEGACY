@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckForCmsRedirect;
+use App\Http\Middleware\EnsureTenantHasModule;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\SetLandlordGuard;
 use App\Interfaces\PermissionInterface;
@@ -132,5 +133,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'landlord.set-guard' => SetLandlordGuard::class,
+        'tenant.module' => EnsureTenantHasModule::class,
     ];
 }

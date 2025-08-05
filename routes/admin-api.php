@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminApi\CMS\UrlAvailableController;
 use App\Http\Controllers\AdminApi\CRM\FormController;
 use App\Http\Controllers\AdminApi\CRM\OrganisationUnitController;
 use App\Http\Controllers\AdminApi\EDU\CourseController;
+use App\Http\Controllers\AdminApi\EDU\LectureFileController;
 use App\Http\Controllers\AdminApi\FileManager\FileManagerDirectoryController;
 use App\Http\Controllers\AdminApi\FileManager\FileManagerFileController;
 use App\Http\Controllers\AdminApi\Settings\MailerTestController;
@@ -19,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'as' => 'cms.',
-    'prefix' => 'cms'
+    'prefix' => 'cms',
+    'middleware' => ['tenant.module:cms']
 ], function() {
     Route::get('/menu', [MenuController::class, 'index'])->name('menus.index');
 
@@ -31,7 +33,8 @@ Route::group([
 
 Route::group([
     'as' => 'crm.',
-    'prefix' => 'crm'
+    'prefix' => 'crm',
+    'middleware' => ['tenant.module:crm']
 ], function() {
     Route::get('/organisation-units', [OrganisationUnitController::class, 'index'])->name('organisation-units.index');
 
@@ -40,9 +43,11 @@ Route::group([
 
 Route::group([
     'as' => 'edu.',
-    'prefix' => 'edu'
+    'prefix' => 'edu',
+    'middleware' => ['tenant.module:edu']
 ], function() {
     Route::get('/course', [CourseController::class, 'index'])->name('courses.index');
+    Route::get('/lecture/{lecture_id}/files', [LectureFileController::class, 'show'])->name('lectures.files.show');
 });
 
 Route::group([

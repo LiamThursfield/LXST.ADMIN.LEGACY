@@ -12,6 +12,7 @@ use App\Http\Requests\Landlord\Admin\Tenant\TenantUpdateRequest;
 use App\Http\Resources\Landlord\Admin\Tenant\TenantResource;
 use App\Interfaces\AppInterface;
 use App\Interfaces\Landlord\PermissionInterface;
+use App\Interfaces\TenantInterface;
 use App\Models\Tenant;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -46,7 +47,11 @@ class TenantController extends AdminController
     public function create() : Response
     {
         $this->addMetaTitleSection('Create')->shareMeta();
-        return Inertia::render('admin/tenant/Create');
+        return Inertia::render('admin/tenant/Create', [
+            'modules' => function () {
+                return TenantInterface::ALL_MODULES_LABELLED;
+            }
+        ]);
     }
 
     public function destroy(Request $request, Tenant $tenant) : RedirectResponse
@@ -63,6 +68,9 @@ class TenantController extends AdminController
     {
         $this->addMetaTitleSection('Edit - ' . $tenant->id)->shareMeta();
         return Inertia::render('admin/tenant/Edit', [
+            'modules' => function () {
+                return TenantInterface::ALL_MODULES_LABELLED;
+            },
             'tenant' => function () use ($tenant) {
                 $tenant->load('domains');
                 TenantResource::withoutWrapping();
@@ -78,6 +86,9 @@ class TenantController extends AdminController
         $this->shareMeta();
         return Inertia::render('admin/tenant/Index', [
             'searchOptions' => $search_options,
+            'modules' => function () {
+                return TenantInterface::ALL_MODULES_LABELLED;
+            },
             'tenants' => function () use ($search_options) {
                 return app(TenantQueryAction::class)->handle($search_options)
                     ->paginate(AppInterface::getSearchPaginationParam($search_options));

@@ -27,6 +27,12 @@
             <div class="block px-6 w-full">
                 <h2 class="font-semibold">
                     Submission Details
+
+                    <span
+                        v-if="formSubmission.is_spam"
+                    >
+                        - <strong class="font-black text-theme-danger-contrast">SPAM</strong>
+                    </span>
                 </h2>
 
                 <p class="mt-2">

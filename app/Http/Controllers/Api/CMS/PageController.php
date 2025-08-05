@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\CMS;
 
 use App\Actions\CMS\Page\PageQueryAction;
+use App\Events\CMS\PageViewed;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\CMS\PageShowRequest;
 use App\Http\Resources\Web\CMS\FullPageResource;
@@ -23,8 +24,12 @@ class PageController extends Controller
             'url',
         ];
 
-        return new JsonResponse(FullPageResource::make(
-            app(PageQueryAction::class)->handle($search_options)->firstOrFail()
-        ));
+        $page = app(PageQueryAction::class)
+            ->handle($search_options)
+            ->firstOrFail();
+
+        PageViewed::dispatch($page);
+
+        return new JsonResponse(FullPageResource::make($page));
     }
 }

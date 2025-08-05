@@ -42,7 +42,7 @@
 
                 <div
                     class="
-                        bg-theme-base flex-1 mt-8 mx-4 p-6 rounded-lg
+                        bg-theme-base flex-1 mt-8 mx-4 overflow-auto p-6 rounded-lg
                         md:mx-8
                     "
                 >

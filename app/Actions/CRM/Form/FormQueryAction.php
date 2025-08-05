@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Builder;
 class FormQueryAction extends AbstractQueryAction
 {
     protected array $searchable_fields_likes = [
-        'name' => 'template_name',
-        'slug' => 'template_slug',
+        'name' => 'form_name',
+        'slug' => 'form_slug',
     ];
 
     protected string $order_by = 'name';

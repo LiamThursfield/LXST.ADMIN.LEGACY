@@ -108,7 +108,10 @@
             </div>
         </div>
 
-        <div class="bg-white mt-6 py-6 shadow-subtle rounded-lg">
+        <div
+            v-if="formData.type"
+            class="bg-white mt-6 py-6 shadow-subtle rounded-lg"
+        >
             <div class="block px-6 w-full">
                 <template-field-editor
                     :template-field-settings="templateFieldSettings"
@@ -135,6 +138,10 @@
         },
         layout: 'admin-layout',
         props: {
+            'componentTemplateFieldTypes': {
+                type: Object,
+                required: true
+            },
             'repeaterTemplateFieldTypes': {
                 type: Object,
                 required: true
@@ -168,6 +175,10 @@
             allowedTemplateFieldTypes() {
                 if (this.formData.type === 'repeater') {
                     return this.repeaterTemplateFieldTypes;
+                }
+
+                if (this.formData.type === 'component') {
+                    return this.componentTemplateFieldTypes;
                 }
 
                 return this.templateFieldTypes;

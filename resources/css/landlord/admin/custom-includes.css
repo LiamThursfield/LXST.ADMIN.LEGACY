@@ -3,6 +3,7 @@
  */
 
 @import "./includes/auth.css";
+@import "./includes/base.css";
 @import "./includes/dropdown.css";
 @import "./includes/side-menu.css";
 @import "./includes/tiny-mce.css";

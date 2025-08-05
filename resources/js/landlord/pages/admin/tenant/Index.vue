@@ -78,6 +78,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Modules</th>
                                 <th v-if="show_tenants_actions"></th>
                             </tr>
                         </thead>
@@ -88,6 +89,9 @@
                             >
                                 <td>
                                     {{ tenant.id }}
+                                </td>
+                                <td>
+                                    {{ getTenantModules(tenant) }}
                                 </td>
                                 <td v-if="show_tenants_actions">
                                     <div class="flex flex-row items-center justify-end -mx-1">
@@ -164,6 +168,7 @@
         },
         layout: 'admin-layout',
         props: {
+            modules: Object,
             searchOptions: Array | Object,
             tenants: Object,
         },
@@ -235,6 +240,22 @@
 
                 this.tenantToDelete = null
                 this.showDeleteModal = false;
+            },
+            getTenantModules(tenant) {
+                try {
+                    let modules = [];
+                    tenant.modules.forEach(module => {
+                        if (this.modules.hasOwnProperty(module)) {
+                            modules.push(this.modules[module]);
+                        } else {
+                            modules.push(module);
+                        }
+                    });
+
+                    return modules.join(', ');
+                } catch (e) {
+                    return '';
+                }
             },
             onSearchOptionsUpdate: _.debounce(function () {
                 if (!this.isInitialised) {

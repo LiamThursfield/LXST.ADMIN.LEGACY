@@ -155,7 +155,10 @@
 @screen lg {
     #admin-layout {
         .side-menu {
-            @apply border-gray-200 border-r inset-auto overflow-hidden pb-2 px-2 relative w-64;
+            @apply border-gray-200 border-r inset-auto overflow-hidden pb-2 px-2 relative;
+
+            min-width: var(--side-menu-width-desktop);
+            width: var(--side-menu-width-desktop);
 
             &:not(.side-menu-open) {
                 transform: translateX(0);

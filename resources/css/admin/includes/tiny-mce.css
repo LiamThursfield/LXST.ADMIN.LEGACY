@@ -6,7 +6,17 @@
  */
 
 .mce-content-body {
-    @apply prose;
+    @apply prose max-w-none;
+}
+
+.tox-dialog {
+    .tox-textarea-wrap {
+        height: 100%;
+
+        .tox-textarea {
+            height: 100%;
+        }
+    }
 }
 
 /* purgecss end ignore */

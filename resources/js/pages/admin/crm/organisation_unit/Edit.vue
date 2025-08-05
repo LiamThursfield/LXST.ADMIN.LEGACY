@@ -169,6 +169,18 @@
                     @errorHidden="clearPageErrorMessage('telephone')"
                     v-model="formData.telephone"
                 />
+
+                <input-group
+                    class="mt-4"
+                    :error-message="getPageErrorMessage('mobile_phone')"
+                    input-autocomplete="organisation_unit_mobile_phone"
+                    input-id="mobile_phone"
+                    input-name="mobile_phone"
+                    input-type="text"
+                    label-text="Mobile Phone"
+                    @errorHidden="clearPageErrorMessage('mobile_phone')"
+                    v-model="formData.mobile_phone"
+                />
             </div>
         </div>
 
@@ -276,6 +288,21 @@
                         v-model="formData.socials.twitter"
                     />
                 </div>
+
+                <div class="flex flex-col md:flex-row md:space-x-4">
+                    <input-group
+                        class="mt-4 md:flex-1"
+                        :error-message="getPageErrorMessage('socials.whatsapp')"
+                        input-autocomplete="whatsapp_account"
+                        input-id="whatsapp_account"
+                        input-name="whatsapp_account"
+                        :input-required="false"
+                        input-type="text"
+                        label-text="WhatsApp"
+                        @errorHidden="clearPageErrorMessage('socials.whatsapp')"
+                        v-model="formData.socials.whatsapp"
+                    />
+                </div>
             </div>
         </div>
 
@@ -331,6 +358,7 @@
                     'snapchat',
                     'tiktok',
                     'twitter',
+                    'whatsapp',
                 ]
             }
         },

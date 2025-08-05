@@ -126,6 +126,24 @@
             </div>
         </div>
 
+        <!-- Additional -->
+        <div class="bg-white mt-6 py-6 shadow-subtle rounded-lg">
+            <div class="block px-6 w-full">
+                <p class="font-medium mb-4 text-theme-base-contrast tracking-wider">
+                    Additional Details
+                </p>
+
+                <div class="space-y-4">
+                    <inline-checkbox-group
+                        input-id="is-spam"
+                        input-name="is-spam"
+                        label-text="Is Spam?"
+                        v-model="formData.is_spam"
+                    />
+                </div>
+            </div>
+        </div>
+
         <!-- Marketing Preferences -->
         <div class="bg-white mt-6 py-6 shadow-subtle rounded-lg">
             <div class="block px-6 w-full">
@@ -190,6 +208,7 @@
                 last_name: this.contact.last_name,
                 telephone: this.contact.telephone,
                 title: this.contact.title,
+                is_spam: !!this.contact.is_spam,
                 marketing_email: !!this.contact.marketing_email,
                 marketing_sms: !!this.contact.marketing_sms,
                 marketing_telephone: !!this.contact.marketing_telephone,

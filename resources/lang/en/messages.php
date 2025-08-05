@@ -26,7 +26,8 @@ return [
     'register' => 'Register',
     'already-registered' => 'Already registered?',
     'create-a-new-account' => 'Create a new account',
-    'register-for-course' => 'Register for course',
+    'register-for-course' => 'Register for course :name',
+    'apply-now' => 'Apply now',
 
     'profile' => 'Profile',
     'my-profile' => 'My Profile',
@@ -85,6 +86,7 @@ return [
     'purchases' => 'Purchases',
     'webinars' => 'Webinars',
     'weekly-webinars' => 'Weekly Webinars',
+    'biweekly-webinars' => 'Biweekly Webinars',
     'file-manager' => 'File Manager',
     'view' => 'View',
     'create' => 'Create',

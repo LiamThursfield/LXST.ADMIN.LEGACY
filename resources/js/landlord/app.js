@@ -18,8 +18,6 @@ import '../filters/date-times';
 import '../mixins/page-error';
 
 import '../../css/landlord/app.css';
-import '../../css/landlord/tinymce/content.css';
-import '../../css/landlord/tinymce/skin.css';
 
 const app = createInertiaApp({
     progress: {

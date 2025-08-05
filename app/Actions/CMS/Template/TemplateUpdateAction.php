@@ -70,7 +70,7 @@ class TemplateUpdateAction
             if (!is_null($field_id)) {
                 if (!isset($existing_template_fields[$field_id])) {
                     throw new Exception(
-                        "Attempting to update non-existent field with id ${field_id} of template " . $template->id
+                        "Attempting to update non-existent field with id {$field_id} of template " . $template->id
                     );
                 }
 

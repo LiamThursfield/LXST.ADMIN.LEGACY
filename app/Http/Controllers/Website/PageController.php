@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Actions\CMS\Page\PageQueryAction;
+use App\Events\CMS\PageViewed;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Web\CMS\FullPageResource;
 use App\Models\Settings\ThemeSettings;
@@ -41,6 +42,8 @@ class PageController extends Controller
         }
 
         $page->logo_url = app(ThemeSettings::class)->getLogoUrl();
+
+        PageViewed::dispatch($page);
 
         return Inertia::render('website/page/Show', [
             'page' => function () use ($page) {

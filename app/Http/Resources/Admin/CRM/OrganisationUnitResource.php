@@ -17,6 +17,7 @@ class OrganisationUnitResource extends JsonResource
             'id'                    => $this->id,
             'location'              => OrganisationUnitResource::make($this->whenLoaded('location')),
             'location_id'           => $this->location_id,
+            'mobile_phone'          => $this->mobile_phone,
             'name'                  => $this->name,
             'notification_emails'   => $this->notification_emails,
             'parent'                => OrganisationUnitResource::make($this->whenLoaded('parent')),

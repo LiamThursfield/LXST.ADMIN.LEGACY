@@ -8,9 +8,9 @@
                 <div class="flex flex-row justify-center">
                     <a
                         class="animate-bg-primary-to-secondary button button-primary flex flex-row justify-center max-w-250px mt-6 rounded-full text-xl w-full"
-                        href="#purchase"
+                        :href="url"
                     >
-                        {{ __('messages.sign-up') }}
+                        {{ __('messages.apply-now') }}
                     </a>
                 </div>
             </div>
@@ -24,6 +24,11 @@
         props: {
             data: {
                 default: '',
+                required: false,
+                type: String
+            },
+            url: {
+                default: '#purchase',
                 required: false,
                 type: String
             },

@@ -5,17 +5,20 @@ namespace App\Interfaces\CMS;
 class TemplateInterface
 {
     // Template Types
+    const TYPE_COMPONENT   = 'component';
     const TYPE_LAYOUT   = 'layout';
     const TYPE_PAGE     = 'page';
     const TYPE_REPEATER = 'repeater';
 
     const ALL_TYPES = [
+        self::TYPE_COMPONENT,
         self::TYPE_LAYOUT,
         self::TYPE_PAGE,
         self::TYPE_REPEATER,
     ];
 
     const ALL_TYPES_LABELLED = [
+        self::TYPE_COMPONENT => 'Component',
         self::TYPE_LAYOUT => 'Layout',
         self::TYPE_PAGE => 'Page',
         self::TYPE_REPEATER => 'Repeater',

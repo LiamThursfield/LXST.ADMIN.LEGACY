@@ -17,6 +17,7 @@ class ContactStoreRequest extends BaseRequest
                 Rule::unique('users'),
             ],
             'first_name'            => 'required|string|max:255',
+            'is_spam'               => 'nullable|boolean',
             'last_name'             => 'required|string|max:255',
             'marketing_email'       => 'nullable|boolean',
             'marketing_sms'         => 'nullable|boolean',

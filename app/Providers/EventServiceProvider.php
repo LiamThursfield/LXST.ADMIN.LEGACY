@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Event;
 class EventServiceProvider extends ServiceProvider
 {
     /**
+     * When enabled this will autodiscover events/listeners
+     * @return bool
+     */
+    public function shouldDiscoverEvents()
+    {
+        return true;
+    }
+
+    /**
      * The event listener mappings for the application.
      *
      * @var array

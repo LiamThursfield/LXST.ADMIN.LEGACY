@@ -51,10 +51,12 @@ export const templateFieldSettingsMixin = {
             if (this.isDefaultSettings) {
                 _.forEach(this.defaultSettings, (value, key) => {
                     if (!this.editableFieldSettings.hasOwnProperty(key)) {
-                        this.editableFieldSettings[key] = value;
+                        this.$set(this.editableFieldSettings, key, value);
                     }
                 });
             }
+
+            this.onEditableSettingsChange();
 
             // TODO: Should we delete any settings that are no longer relevant?
             //  i.e. any fields not in the default settings

@@ -9,7 +9,7 @@
                 :menu="sideMenu"
             />
 
-            <div class="flex flex-1 flex-col max-w-full">
+            <div class="admin-section">
                 <top-menu />
 
                 <page-alerts />
@@ -146,6 +146,64 @@
                         label: "CMS",
                         requiresAllPermissions: [],
                         requiresAnyPermissions: ["cms.edit", "cms.create", "cms.view"],
+                        requiresTenantModule: 'cms',
+                        showLabel: true,
+                    },
+                    cms_advanced: {
+                        children : {
+                            redirects: {
+                                activeRoutes: ["admin.cms.redirects.index", "admin.cms.redirects.create", "admin.cms.redirects.edit"],
+                                children: {
+                                    index: {
+                                        icon: false,
+                                        label: "View Redirects",
+                                        requiresAllPermissions: ["cms_advanced.view"],
+                                        requiresAnyPermissions: [],
+                                        route: "admin.cms.redirects.index",
+                                    },
+                                    create: {
+                                        children: false,
+                                        icon: false,
+                                        label: "Create Redirects",
+                                        requiresAllPermissions: ["cms_advanced.create"],
+                                        requiresAnyPermissions: [],
+                                        route: "admin.cms.redirects.create",
+                                    },
+                                },
+                                icon: "icon-arrows-shuffle",
+                                label: "Redirects",
+                                requiresAllPermissions: [],
+                                requiresAnyPermissions: ["cms_advanced.create", "cms_advanced.view"],
+                            },
+                            templates: {
+                                activeRoutes: ["admin.cms.templates.index", "admin.cms.templates.create", "admin.cms.templates.edit"],
+                                children: {
+                                    index: {
+                                        icon: false,
+                                        label: "View Templates",
+                                        requiresAllPermissions: ["cms_advanced.view"],
+                                        requiresAnyPermissions: [],
+                                        route: "admin.cms.templates.index",
+                                    },
+                                    create: {
+                                        children: false,
+                                        icon: false,
+                                        label: "Create Template",
+                                        requiresAllPermissions: ["cms_advanced.create"],
+                                        requiresAnyPermissions: [],
+                                        route: "admin.cms.templates.create",
+                                    },
+                                },
+                                icon: "icon-template",
+                                label: "Templates",
+                                requiresAllPermissions: [],
+                                requiresAnyPermissions: ["cms_advanced.create", "cms_advanced.view"],
+                            },
+                        },
+                        label: "CMS - Advanced",
+                        requiresAllPermissions: [],
+                        requiresAnyPermissions: ["cms_advanced.create", "cms_advanced.view"],
+                        requiresTenantModule: 'cms',
                         showLabel: true,
                     },
                     cms_advanced: {
@@ -290,6 +348,7 @@
                         label: "CRM",
                         requiresAllPermissions: [],
                         requiresAnyPermissions: ["crm_forms.create", "crm_forms.view", "crm_contacts.create", "crm_contacts.view", "crm_organisation_units.create", "crm_organisation_units.view"],
+                        requiresTenantModule: 'crm',
                         showLabel: true,
                     },
                     edu: {
@@ -447,6 +506,7 @@
                             'edu_webinars.view',
                             'edu_webinars.create',
                         ],
+                        requiresTenantModule: 'edu',
                         showLabel: true,
                     },
                     utilities: {

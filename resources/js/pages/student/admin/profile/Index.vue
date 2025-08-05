@@ -53,7 +53,7 @@
 
                 <p class="mt-2">
                     {{ __('messages.request-refund-text') }}
-                    <a href="mailto:webmaster@example.com" class="font-semibold">info@minducate.us</a>
+                    <a href="mailto:info@minducate.us" class="font-semibold">info@minducate.us</a>
                 </p>
             </div>
         </div>
