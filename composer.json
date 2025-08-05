@@ -13,7 +13,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "honeybadger-io/honeybadger-laravel": "^3.18",
         "inertiajs/inertia-laravel": "^1.0.0",
-        "laravel/framework": "^10.0",
+        "laravel/framework": "^v10.48.29",
         "laravel/telescope": "^4.4",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^4.0",
@@ -26,7 +26,7 @@
         "spatie/laravel-settings": "^3.2",
         "stancl/tenancy": "^3.7",
         "stripe/stripe-php": "^12.3",
-        "symfony/http-client": "^7.0",
+        "symfony/http-client": "^v7.1.11",
         "symfony/mailgun-mailer": "^7.0",
         "tightenco/ziggy": "^1.5",
         "vimeo/laravel": "^5.8"
