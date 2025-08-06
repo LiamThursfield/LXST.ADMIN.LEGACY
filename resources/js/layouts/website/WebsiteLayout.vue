@@ -9,7 +9,7 @@
                         class="font-semibold hover:text-theme-primary-hover"
                         href="/"
                     >
-                        {{ __('messages.homepage') }}
+                        Homepage
                     </inertia-link>
 
                     <ul class="flex flex-row space-x-4">
@@ -18,7 +18,7 @@
                                 class="hover:text-theme-primary-hover"
                                 href="#"
                             >
-                                {{ __('messages.about') }}
+                                About
                             </inertia-link>
                         </li>
                         <li>
@@ -26,7 +26,7 @@
                                 class="hover:text-theme-primary-hover"
                                 href="#"
                             >
-                                {{ __('messages.contact') }}
+                                Contact
                             </inertia-link>
                         </li>
                     </ul>

@@ -59,11 +59,11 @@
         </transition>
 
         <confirmation-modal
-            :confirm-text="__('messages.confirm')"
-            :cancel-text="__('messages.cancel')"
-            :message-title="__('messages.are-you-sure') + '?'"
+            confirm-text="Confirm"
+            cancel-text="Cancel"
+            message-title="Are you sure?"
             :show-modal="showResetDefaultsModal"
-            :message-text="__('messages.color-reset-confirm')"
+            message-text="This will reset all colors to their default values. Save changes to take effect."
             @cancelAction="cancelResetDefaults"
             @closeModal="cancelResetDefaults"
             @confirmAction="confirmResetDefaults"

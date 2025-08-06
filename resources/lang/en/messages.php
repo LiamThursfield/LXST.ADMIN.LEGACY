@@ -64,6 +64,4 @@ return [
 
     'faq' => 'FAQ',
     'testimonials' => 'Testimonials',
-
-    'color-reset-confirm' => 'This will reset all colors to their default values. Save changes to take effect.',
 ];

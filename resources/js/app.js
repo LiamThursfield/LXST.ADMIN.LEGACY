@@ -12,20 +12,15 @@ import './plugins/vue2-datepicker';
 import './plugins/vue-cookies';
 import './plugins/vue-meta';
 import './plugins/ziggy';
-import './plugins/zora';
-import './plugins/anime'
+
 
 import './filters/date-times';
-import './filters/prices';
 
 import './mixins/page-error';
-import './mixins/zora';
-
-import './component-registration';
-
-import './inertia-events';
 
 import '../css/app.css';
+
+import './component-registration';
 
 const app = createInertiaApp({
     progress: {

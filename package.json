@@ -3,8 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "clearjs": "rimraf public/build/assets/*",
-        "prod": "rimraf public/build/assets/* && vite build",
+        "clearjs": "rimraf public/build/*",
+        "prod": "vrimraf public/build/* && ite build",
         "build": "vite build"
     },
     "devDependencies": {
@@ -51,7 +51,6 @@
         "postcss": "^8.2.1"
     },
     "dependencies": {
-        "animejs": "^3.2.2",
         "wavesurfer.js": "^7.4.6"
     }
 }

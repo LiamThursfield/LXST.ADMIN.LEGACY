@@ -89,11 +89,7 @@ So the process is inline with the package's documentation.
 
 ### Preparing for production
 
-1. Generate the JS translation files (if any have been added/updated)
-   ```bash
-    ./vendor/bin/sail artisan zora:generate
-    ```
-2. Production-ify JS/CSS
+1. Production-ify JS/CSS
    ```bash
     ./vendor/bin/sail artisan yarn prod
     ``` 

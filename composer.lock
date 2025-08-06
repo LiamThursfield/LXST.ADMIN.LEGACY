@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db969809ef85851335a980b7e8ac49bc",
+    "content-hash": "196efcd530b0ef7dd2fd5d98b5971f32",
     "packages": [
         {
             "name": "ankitpokhrel/tus-php",
@@ -9292,57 +9292,6 @@
                 "source": "https://github.com/Jean85/pretty-package-versions/tree/2.1.1"
             },
             "time": "2025-03-19T14:43:43+00:00"
-        },
-        {
-            "name": "jetstreamlabs/zora",
-            "version": "v4.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jetstreamlabs/zora.git",
-                "reference": "565b7eb436937edc69d59d831519026850afe9fe"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jetstreamlabs/zora/zipball/565b7eb436937edc69d59d831519026850afe9fe",
-                "reference": "565b7eb436937edc69d59d831519026850afe9fe",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^9.0|^10.0|^11.0",
-                "php": "^8.2"
-            },
-            "require-dev": {
-                "jetstreamlabs/pinte": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Jetlabs\\Zora\\ZoraServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Jetlabs\\Zora\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "secondman",
-                    "email": "secondman@jetstreamlabs.com"
-                }
-            ],
-            "description": "Add your Laravel language translations to your asset pipeline for use in Javascript packages like Vue or React.",
-            "support": {
-                "issues": "https://github.com/jetstreamlabs/zora/issues",
-                "source": "https://github.com/jetstreamlabs/zora/tree/v4.1.4"
-            },
-            "time": "2024-03-03T08:45:21+00:00"
         },
         {
             "name": "laravel/sail",

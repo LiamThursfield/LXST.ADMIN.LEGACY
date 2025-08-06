@@ -9,7 +9,7 @@
             class="flex flex-row items-center mb-6"
         >
             <h1 class="font-medium mr-auto text-lg">
-                {{ __('settings.edit', {setting: settingsName}) }}
+                {{ `Edit ${settingsName} Settings` }}
             </h1>
 
             <button
@@ -28,7 +28,7 @@
                 <span
                     class="hidden md:inline"
                 >
-                    {{ __('form.buttons.save') }}
+                    Save Changes
                 </span>
             </button>
         </div>

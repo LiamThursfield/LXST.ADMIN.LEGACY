@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue2';
-import path from 'path';
 
 export default defineConfig({
     plugins: [
@@ -16,10 +15,6 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            vue: 'vue/dist/vue.esm.js',
-            '@': path.resolve(__dirname, 'resources/js'),
-            'zora-js': path.resolve(__dirname, 'vendor/jetstreamlabs/zora/dist/index.js'),
-            zora: path.resolve(__dirname, 'vendor/jetstreamlabs/zora/dist/vue.js'),
         },
     },
     server: {

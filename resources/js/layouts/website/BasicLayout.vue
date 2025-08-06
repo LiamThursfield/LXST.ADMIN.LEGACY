@@ -15,7 +15,7 @@
                         class="font-semibold hover:text-theme-primary-hover"
                         href="/"
                     >
-                        {{ __('messages.homepage') }}
+                        Homepage
                     </inertia-link>
                 </div>
             </nav>
