@@ -2,7 +2,7 @@
 import Vue from "vue";
 
 Vue.prototype.$route = (...args) => route(...args);
-Vue.prototype.$routeCheck = (...args) => route().check(...args);
+Vue.prototype.$routeCheck = (...args) => route().has(...args);
 Vue.prototype.$routeCurrent = (...args) => route().current(...args);
 
 Vue.mixin({
