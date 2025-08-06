@@ -29,8 +29,7 @@
                 class="logo"
                 :href="$route('admin.index')"
             >
-                <logo-light class="mr-2 w-6"/>
-                <span>LXST.ADMIN</span>
+                <logo-light class="mr-2 h-10"/>
             </inertia-link>
         </div>
 
