@@ -24,7 +24,7 @@ Vue.component('content-editor', ContentEditor);
 
 // Icons
 // Autoload any icons inside /components/core/icons
-const iconFiles = import.meta.globEager('./components/core/icons/*.vue');
+const iconFiles = import.meta.glob('./components/core/icons/*.vue', { eager: true });
 Object.entries(iconFiles).forEach(([path, m]) => {
     const componentName = path.split('/').pop().split('.')[0];
     Vue.component(componentName, m.default);
