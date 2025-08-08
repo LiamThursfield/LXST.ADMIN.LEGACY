@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\CRM;
 use App\Actions\CRM\OrganisationUnit\OrganisationUnitQueryAction;
 use App\Actions\CRM\OrganisationUnit\OrganisationUnitStoreAction;
 use App\Actions\CRM\OrganisationUnit\OrganisationUnitUpdateAction;
+use App\Enums\CRM\SocialMedia;
 use App\Http\Controllers\AdminController;
 use App\Http\Requests\Admin\CRM\OrganisationUnit\OrganisationUnitIndexRequest;
 use App\Http\Requests\Admin\CRM\OrganisationUnit\OrganisationUnitStoreRequest;
@@ -48,7 +49,11 @@ class OrganisationUnitController extends AdminController
     public function create() : Response
     {
         $this->addMetaTitleSection('Create')->shareMeta();
+
         return Inertia::render('admin/crm/organisation_unit/Create', [
+            'socials' => function () {
+                return SocialMedia::cases();
+            },
             'types' => function () {
                 return OrganisationUnitInterface::TYPE_LABELS;
             }
@@ -68,10 +73,14 @@ class OrganisationUnitController extends AdminController
     public function edit(OrganisationUnit $organisationUnit) : Response
     {
         $this->addMetaTitleSection('Edit - ' . $organisationUnit->name)->shareMeta();
+
         return Inertia::render('admin/crm/organisation_unit/Edit', [
             'organisationUnit' => function () use ($organisationUnit) {
                 OrganisationUnitResource::withoutWrapping();
                 return OrganisationUnitResource::make($organisationUnit);
+            },
+            'socials' => function () {
+                return SocialMedia::cases();
             },
             'types' => function () {
                 return OrganisationUnitInterface::TYPE_LABELS;

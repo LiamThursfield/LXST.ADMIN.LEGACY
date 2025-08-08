@@ -189,118 +189,24 @@
             <div class="block px-6 w-full">
                 <span class="text-lg">Socials</span>
 
-                <div class="flex flex-col md:flex-row md:space-x-4">
+                <div
+                    class="
+                        gap-4 grid grid-cols-1 mt-4
+                        md:grid-cols-2
+                    "
+                >
                     <input-group
-                        class="mt-4 md:flex-1"
-                        :error-message="getPageErrorMessage('socials.youtube')"
-                        input-autocomplete="youtube_account"
-                        input-id="youtube_account"
-                        input-name="youtube_account"
+                        v-for="socialKey in socials"
+                        :key="`social-${socialKey}`"
+                        :error-message="getPageErrorMessage(`socials.${socialKey}`)"
+                        :input-autocomplete="`${socialKey}_account`"
+                        :input-id="`${socialKey}_account`"
+                        :input-name="`${socialKey}_account`"
                         :input-required="false"
                         input-type="text"
-                        label-text="Youtube"
-                        @errorHidden="clearPageErrorMessage('socials.youtube')"
-                        v-model="formData.socials.youtube"
-                    />
-                </div>
-
-                <div class="flex flex-col md:flex-row md:space-x-4">
-
-                    <input-group
-                        class="mt-4 md:flex-1"
-                        :error-message="getPageErrorMessage('socials.facebook')"
-                        input-autocomplete="facebook_account"
-                        input-id="facebook_account"
-                        input-name="facebook_account"
-                        :input-required="false"
-                        input-type="text"
-                        label-text="Facebook"
-                        @errorHidden="clearPageErrorMessage('socials.facebook')"
-                        v-model="formData.socials.facebook"
-                    />
-
-                    <input-group
-                        class="mt-4 md:flex-1"
-                        :error-message="getPageErrorMessage('socials.instagram')"
-                        input-autocomplete="instagram_account"
-                        input-id="instagram_account"
-                        input-name="instagram_account"
-                        :input-required="false"
-                        input-type="text"
-                        label-text="Instagram"
-                        @errorHidden="clearPageErrorMessage('socials.instagram')"
-                        v-model="formData.socials.instagram"
-                    />
-                </div>
-
-                <div class="flex flex-col md:flex-row md:space-x-4">
-                    <input-group
-                        class="mt-4 md:flex-1"
-                        :error-message="getPageErrorMessage('socials.linkedin')"
-                        input-autocomplete="linkedin_account"
-                        input-id="linkedin_account"
-                        input-name="linkedin_account"
-                        :input-required="false"
-                        input-type="text"
-                        label-text="Linkedin"
-                        @errorHidden="clearPageErrorMessage('socials.linkedin')"
-                        v-model="formData.socials.linkedin"
-                    />
-
-                    <input-group
-                        class="mt-4 md:flex-1"
-                        :error-message="getPageErrorMessage('socials.snapchat')"
-                        input-autocomplete="snapchat_account"
-                        input-id="snapchat_account"
-                        input-name="snapchat_account"
-                        :input-required="false"
-                        input-type="text"
-                        label-text="Snapchat"
-                        @errorHidden="clearPageErrorMessage('socials.snapchat')"
-                        v-model="formData.socials.snapchat"
-                    />
-                </div>
-
-                <div class="flex flex-col md:flex-row md:space-x-4">
-                    <input-group
-                        class="mt-4 md:flex-1"
-                        :error-message="getPageErrorMessage('socials.tiktok')"
-                        input-autocomplete="tiktok_account"
-                        input-id="tiktok_account"
-                        input-name="tiktok_account"
-                        :input-required="false"
-                        input-type="text"
-                        label-text="TikTok"
-                        @errorHidden="clearPageErrorMessage('socials.tiktok')"
-                        v-model="formData.socials.tiktok"
-                    />
-
-                    <input-group
-                        class="mt-4 md:flex-1"
-                        :error-message="getPageErrorMessage('socials.twitter')"
-                        input-autocomplete="twitter_account"
-                        input-id="twitter_account"
-                        input-name="twitter_account"
-                        :input-required="false"
-                        input-type="text"
-                        label-text="Twitter/X"
-                        @errorHidden="clearPageErrorMessage('socials.twitter')"
-                        v-model="formData.socials.twitter"
-                    />
-                </div>
-
-                <div class="flex flex-col md:flex-row md:space-x-4">
-                    <input-group
-                        class="mt-4 md:flex-1"
-                        :error-message="getPageErrorMessage('socials.whatsapp')"
-                        input-autocomplete="whatsapp_account"
-                        input-id="whatsapp_account"
-                        input-name="whatsapp_account"
-                        :input-required="false"
-                        input-type="text"
-                        label-text="WhatsApp"
-                        @errorHidden="clearPageErrorMessage('socials.whatsapp')"
-                        v-model="formData.socials.whatsapp"
+                        :label-text="capitalize(socialKey)"
+                        @errorHidden="clearPageErrorMessage(`socials.${socialKey}`)"
+                        v-model="formData.socials[socialKey]"
                     />
                 </div>
             </div>
@@ -315,7 +221,7 @@
 </template>
 
 <script>
-    import _ from "lodash";
+    import _, {capitalize} from "lodash";
     import slugify from "slugify";
     import InputGroup from "../../../../components/core/forms/InputGroup.vue";
     import SelectGroup from "../../../../components/core/forms/SelectGroup.vue";
@@ -335,6 +241,10 @@
                 type: Object,
                 required: true,
             },
+            socials: {
+                type: Array,
+                required: true
+            },
             types: {
                 type: Object,
                 required: true,
@@ -350,15 +260,6 @@
                 locations: [],
                 selected_company_id: null,
                 selected_location_id: null,
-                socials: [
-                    'facebook',
-                    'instagram',
-                    'linkedin',
-                    'snapchat',
-                    'tiktok',
-                    'twitter',
-                    'whatsapp',
-                ]
             }
         },
         computed: {
@@ -391,7 +292,7 @@
             this.initialiseSocials();
         },
         methods: {
-
+            capitalize,
             initialiseSocials() {
                 if (!this.formData.hasOwnProperty('socials')) {
                     this.$set(this.formData, 'socials', {});
