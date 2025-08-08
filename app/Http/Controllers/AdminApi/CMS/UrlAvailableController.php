@@ -22,6 +22,7 @@ class UrlAvailableController extends Controller
     {
         $request_data = $request->validated();
 
+        sleep(6);
         $url = Arr::get($request_data, 'url');
         if ($url !== '/') {
             $url = rtrim($url, '/');

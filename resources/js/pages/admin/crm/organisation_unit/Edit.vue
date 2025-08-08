@@ -320,9 +320,8 @@
     import InputGroup from "../../../../components/core/forms/InputGroup.vue";
     import SelectGroup from "../../../../components/core/forms/SelectGroup.vue";
 
-    let CancelToken = axios.CancelToken;
-    let companiesCancelToken = CancelToken.source();
-    let locationsCancelToken = CancelToken.source();
+    let companiesAbortController = new AbortController();
+    let locationsAbortController = new AbortController();
 
     export default {
         name: "AdminCrmOrganisationUnitEdit",
@@ -406,8 +405,8 @@
             },
             loadCompanies() {
                 if (this.isLoadingCompanies) {
-                    companiesCancelToken.cancel('Companies load cancelled');
-                    companiesCancelToken = CancelToken.source();
+                    companiesAbortController.abort('Companies load cancelled');
+                    companiesAbortController = new AbortController();
                 }
 
                 this.isLoadingCompanies = true;
@@ -417,7 +416,8 @@
                     {
                         params: {
                             organisation_unit_type: 'company',
-                        }
+                        },
+                        signal: companiesAbortController.signal
                     }
                 ).then(response => {
                     this.companies = response.data.data
@@ -431,8 +431,8 @@
             },
             loadLocations() {
                 if (this.isLoadingLocations) {
-                    locationsCancelToken.cancel('Locations load cancelled');
-                    locationsCancelToken = CancelToken.source();
+                    locationsAbortController.abort('Locations load cancelled');
+                    locationsAbortController = new AbortController();
                 }
 
                 this.isLoadingLocations = true;
@@ -443,7 +443,8 @@
                         params: {
                             organisation_unit_type: 'location',
                             organisation_unit_company_id: this.formData.company_id,
-                        }
+                        },
+                        signal: locationsAbortController.signal
                     }
                 ).then(response => {
                     this.locations = response.data.data

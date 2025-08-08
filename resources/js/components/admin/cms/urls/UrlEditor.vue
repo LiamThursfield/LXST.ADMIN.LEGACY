@@ -101,8 +101,7 @@
     import InlineCheckboxGroup from "../../../core/forms/InlineCheckboxGroup.vue";
     import InputGroup from '../../../core/forms/InputGroup.vue';
 
-    let CancelToken = axios.CancelToken;
-    let urlCheckCancelToken = CancelToken.source();
+    let urlCheckAbortController = new AbortController();
 
     export default {
         name: "UrlEditor",
@@ -193,8 +192,8 @@
         methods: {
             cancelUrlCheck() {
                 if (this.isUrlCheckLoading) {
-                    urlCheckCancelToken.cancel('URL check cancelled');
-                    urlCheckCancelToken = CancelToken.source();
+                    urlCheckAbortController.abort();
+                    urlCheckAbortController = new AbortController();
                 }
             },
             checkUrlIsAvailable: _.debounce(function () {
@@ -219,7 +218,7 @@
                     this.$route('admin.api.cms.urls.available'),
                     {
                         params,
-                        cancelToken: urlCheckCancelToken.token,
+                        signal: urlCheckAbortController.signal,
                     }
                 ).then(response => {
                     this.isUrlCheckLoading = false;

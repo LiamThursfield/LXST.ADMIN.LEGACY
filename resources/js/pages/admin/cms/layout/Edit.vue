@@ -118,8 +118,7 @@
     import InputGroup from "../../../../components/core/forms/InputGroup.vue";
     import SelectGroup from "../../../../components/core/forms/SelectGroup.vue";
 
-    let CancelToken = axios.CancelToken;
-    let templateCancelToken = CancelToken.source();
+    let templateAbortController = new AbortController();
 
     export default {
         name: "AdminCmsLayoutCreate",
@@ -179,8 +178,8 @@
         methods: {
             cancelLoadTemplate() {
                 if (this.isLoadingTemplate) {
-                    templateCancelToken.cancel('Template load cancelled');
-                    templateCancelToken = CancelToken.source();
+                    templateAbortController.abort('Template load cancelled');
+                    templateAbortController = new AbortController();
                 }
             },
             doesObjectHaveKeys(obj) {
@@ -221,7 +220,10 @@
                 this.isLoadingTemplate = true;
 
                 axios.get(
-                    this.$route('admin.api.cms.templates.show', this.selectedTemplateId)
+                    this.$route('admin.api.cms.templates.show', this.selectedTemplateId),
+                    {
+                        signal: templateAbortController.signal
+                    }
                 ).then(response => {
                     this.selectedTemplate = _.cloneDeep(response.data.data);
                     this.setNewTemplateContent();

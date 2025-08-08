@@ -154,8 +154,7 @@
     import FileManagerFilesList from "./partials/FileManagerFilesList.vue";
     import FileManagerFileUploader from "./partials/FileManagerFileUploader.vue";
 
-    let CancelToken = axios.CancelToken;
-    let filesCancelToken = CancelToken.source();
+    let filesAbortController = new AbortController();
 
     export default {
         name: "FileManager",
@@ -292,8 +291,8 @@
         methods: {
             cancelLoadFiles() {
                 if (this.isLoadingFiles) {
-                    filesCancelToken.cancel('Files load cancelled');
-                    filesCancelToken = CancelToken.source();
+                    filesAbortController.abort('Files load cancelled');
+                    filesAbortController = new AbortController();
                 }
             },
             changeDirectory(newDirectory = '/') {
@@ -406,7 +405,7 @@
                     this.$route('admin.api.file-manager.files.index'),
                     {
                         params,
-                        cancelToken: filesCancelToken.token
+                        signal: filesAbortController.signal
                     }
                 ).then(response => {
                     if (response.data.hasOwnProperty('files')) {
