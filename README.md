@@ -37,9 +37,9 @@
     ```bash
     ./vendor/bin/sail composer install
     ```
-6. Install yarn dependencies
+6. Install npm dependencies
     ```bash
-    ./vendor/bin/sail yarn
+    pnpm i
     ```
 7. Generate application key
     ```bash
@@ -91,7 +91,7 @@ So the process is inline with the package's documentation.
 
 1. Production-ify JS/CSS
    ```bash
-    ./vendor/bin/sail artisan yarn prod
+    pnpm prod
     ``` 
 
 
