@@ -5,7 +5,7 @@ Please note that this project (Formerly Laravel TVI) is now deprecated. Please s
  # LXST.ADMIN
 
 
-## About LXST.ADMIN
+## About LXST.ADMIN.LEGACY
 
 ## Core Stack
 - [Laravel](https://laravel.com/)
