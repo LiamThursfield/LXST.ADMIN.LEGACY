@@ -1,3 +1,7 @@
+# DEPRECATED 
+
+Please note that this project (Formerly Laravel TVI) is now deprecated. Please see [LXST.ADMIN](https://github.com/LiamThursfield/LXST.ADMIN) for the latest version and any future updates.
+ 
  # LXST.ADMIN
 
 
