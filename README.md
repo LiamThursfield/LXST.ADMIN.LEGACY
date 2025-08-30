@@ -2,10 +2,10 @@
 
 Please note that this project (Formerly Laravel TVI) is now deprecated. Please see [LXST.ADMIN](https://github.com/LiamThursfield/LXST.ADMIN) for the latest version and any future updates.
  
- # LXST.ADMIN
+ # LXST.ADMIN.LEGACY
 
 
-## About LXST.ADMIN.LEGACY
+## About
 
 ## Core Stack
 - [Laravel](https://laravel.com/)
