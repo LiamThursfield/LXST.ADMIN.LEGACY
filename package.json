@@ -34,7 +34,7 @@
         "tailwindcss": "^3.4.1",
         "tinymce": "^6.8.5",
         "tippy.js": "^6.2.6",
-        "vite": "^5.0.0",
+        "vite": "^5.4.20",
         "vue": "^2.7.16",
         "vue-clickaway": "^2.2.2",
         "vue-cookies": "^1.8.3",
