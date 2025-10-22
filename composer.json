@@ -13,6 +13,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^1.0.0",
         "laravel/framework": "^v11.45.1",
+        "laravel/nightwatch": "^1.17",
         "laravel/telescope": "^v5.10.2",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^4.0",
