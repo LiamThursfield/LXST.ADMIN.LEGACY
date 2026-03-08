@@ -47,7 +47,7 @@
         "vuedraggable": "^2.24.3",
         "vuex": "^3.5.1",
         "wavesurfer.js": "^7.4.6",
-        "webpack": "^5.101.0"
+        "webpack": "^5.104.1"
     },
     "peerDependencies": {
         "postcss": "^8.2.1"
